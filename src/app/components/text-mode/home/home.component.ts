@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    NavbarComponent
+    NavbarComponent,
+    RouterOutlet
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  template: '<app-navbar/> <router-outlet/>',
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}

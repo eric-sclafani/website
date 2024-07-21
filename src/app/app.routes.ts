@@ -6,14 +6,19 @@ import { TerminalComponent } from "./components/terminal-mode/terminal/terminal.
 import { HomeComponent } from "./components/text-mode/home/home.component";
 
 export const routes: Routes = [
-  
-    { path: "text/home", component: HomeComponent },
-    { path: "text/about", component: AboutComponent },
-    { path: "text/projects", component: ProjectsComponent },
-    { path: "text/resume", component: ResumeComponent },
+
+    {path: "text", redirectTo: "text/about", pathMatch:"full"},
+    {
+        path: "text",
+        component: HomeComponent,
+        children: [
+            { path: "about", component: AboutComponent },
+            { path: "projects", component: ProjectsComponent },
+            { path: "resume", component: ResumeComponent },
+        ]
+    },
 
     { path: "terminal", component: TerminalComponent },
-    { path: "", redirectTo: "/terminal", pathMatch: "full"},
-    { path:"**", redirectTo:"/terminal", pathMatch: "full"}
-    
+    { path: "", redirectTo: "/terminal", pathMatch: "full" },
+    { path: "**", redirectTo: "/terminal", pathMatch: "full" }
 ];

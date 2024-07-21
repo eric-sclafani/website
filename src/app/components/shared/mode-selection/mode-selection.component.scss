@@ -1,3 +1,8 @@
+#nav-wrapper {
+    background-color: #575a6e;
+    position:sticky;
+}
+
 nav {
     display:flex;
     gap:10px;
@@ -5,6 +10,6 @@ nav {
     background-color: lightpink;
     position:sticky;
     top:0;
+    margin:0 10% 0 10%;
     padding: 20px 0 20px 0;
-
 }
