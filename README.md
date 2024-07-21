@@ -2,26 +2,73 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Ideas
 
-## Code scaffolding
+- A terminal mode and a text mode
+    - Command = screen looks like a bash terminal, user types in commands to see things:
+        - text will be styled nicely and easy to read in the "terminal" window
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    - Text = all information will be displayed like a typical navbar portfolio
 
-## Build
+- Same page display components for both modes
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- User can easily switch between each mode
 
-## Running unit tests
+- In terminal mode, user can modify appearence of terminal (maybe) 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## (Potential) Terminal Mode Commands
 
-## Running end-to-end tests
+### Functionality
+- cmd or ctrl backspace -> removes all text from line
+- up arrow -> previous command 
+- tab -> command completion
+- option or alt backspace -> remove previous word
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Main commands
+- help -> show all available commands 
+- ls -> show all pages they can navigate to
+- about -> show about page
+- projects -> show projects page
+- resume | cv -> show resume pdf
+- github -> redirects to my github page
+- linkedin -> redirect to linkedin page
+- repo -> redirect to portfolio github
+- clear | cl -> remove command history and displayed commands
+- text -> switched to text mode 
 
-## Further help
+#### Silly commands
+- echo -> displays user's text
+- ericsPasswords -> redirect to rick roll
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Architecture notes
+
+- TerminalModeComponent
+    - InputHandler
+    - terminal
+
+- TextModeComponent
+    - navbar 
+    - pages/
+        - about (default page)
+        - projects
+        - resume
+
+- Shared components
+    - ModeSelectionComponent
+    - footer
+
+- Services (injected into Text mode and Terminal mode)
+    - These services will hold the data and be displayed differently in both modes
+    - about
+    - projects
+    - resume
+    
+
+
+## Inspirations
+
+- https://dinogomez.vercel.app/
+
+- https://liveterm.vercel.app/
+

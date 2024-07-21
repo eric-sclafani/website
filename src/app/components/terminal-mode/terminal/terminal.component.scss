@@ -1,0 +1,15 @@
+#terminal-wrapper {
+    background-color: #575a6e;
+    color:white;
+}
+
+#inner-terminal {
+    margin: 0 15px 0 15px;
+    border:solid lightblue;
+    border-radius: 4px;
+    padding:15px;
+    display:flex;
+    flex-direction: column;
+    height: 150vh;
+
+}
