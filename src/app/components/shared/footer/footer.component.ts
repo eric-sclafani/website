@@ -4,9 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-footer',
   standalone: true,
   imports: [],
-  templateUrl: './footer.component.html',
+  template: `
+  <footer>
+  © Copyright {{ currentYear }} Eric Sclafani <span id="bar">|</span> Made with ❤️ in Angular
+  </footer>`,
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-
+  currentYear = new Date().getFullYear() 
 }

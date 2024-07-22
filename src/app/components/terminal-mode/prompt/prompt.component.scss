@@ -1,0 +1,17 @@
+@import "../../../../styles.scss";
+
+#prompt-wrapper {
+    color:white;
+
+    input {
+
+        background-color:$terminal-bg-color;
+        color:$terminal-text-color;
+        border:none;
+        
+        &:focus {
+            outline:none;
+        }
+    }
+    
+}

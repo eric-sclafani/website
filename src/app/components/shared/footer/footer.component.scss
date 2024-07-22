@@ -1,12 +1,14 @@
 footer {
-    background-color: lightgreen;
     display:flex;
     gap:10px;
-    justify-content: center;
-    background-color: lightgreen;
-    position:fixed;
-    width:100%;
-    bottom:0;
-    padding: 15px 0 15px 0;
+    background-color: rgb(225, 230, 237, 0.5);
+    align-items: center;
+    border-radius:15px;
+    padding: 0 10px 0 10px;
+    
 
+    #bar {
+        font-size: 20px;
+        font-weight:700; 
+    }
 }

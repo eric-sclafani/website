@@ -1,17 +1,18 @@
-#nav-wrapper {
-
-    position:sticky;
-    top:0;
-    
-
-}
-
 nav {
     display:flex;
     gap:10px;
     justify-content: center;
-    background-color: lightpink;
-    
-    margin:0 10% 0 10%;
-    padding: 20px 0 20px 0;
+    background-color: rgb(225, 230, 237, 0.5);
+    border-radius: 30px;
+    padding: 20px;
+
+    @media screen and (max-width:903px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    @media screen and (max-width:490px) {
+        text-align: center;
+
+    }
+
 }

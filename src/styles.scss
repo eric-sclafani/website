@@ -1,5 +1,17 @@
+$terminal-bg-color: #575a6e;
+$terminal-text-color:white;
+
+
+
+
+
 * {
     box-sizing: border-box;
     margin:0px
 }
 
+
+body {
+    overflow-y: hidden;
+    height:100%;
+}
