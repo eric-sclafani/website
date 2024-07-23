@@ -23,11 +23,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - cmd or ctrl backspace -> removes all text from line
 - up arrow -> previous command 
 - tab -> command completion
-- option or alt backspace -> remove previous word
 
 #### Main commands
 - help -> show all available commands 
-- ls -> show all pages they can navigate to
 - about -> show about page
 - projects -> show projects page
 - resume | cv -> show resume pdf
@@ -39,7 +37,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 #### Silly commands
 - echo -> displays user's text
-- ericsPasswords -> redirect to rick roll
+- ericspasswords -> redirect to rick roll
 
 ## Architecture notes
 

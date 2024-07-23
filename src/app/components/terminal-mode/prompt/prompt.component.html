@@ -1,9 +1,17 @@
 <div id="prompt-wrapper">
-    <span class="visitor">visitor</span>
-    <span class="symbol at-symbol">{{ atSymbol }}</span>
-    <span class="domain">my-portfolio</span>
-    <span class="symbol colon">:</span>
-    <span class="symbol dollar">$</span>
-    <span class="symbol tilde">~</span>
-    <input #focusInput type="text" autocomplete="off" spellcheck="false" value="" autofocus>
+    <span class="prefix">{{ prefix }}</span>
+    <span class="symbol">{{ atSymbol }}</span>
+    <span class="domain">{{ domain }}</span>
+    <span class="symbol">{{ colon }}</span>
+    <span class="symbol">{{ dollar }}</span>
+    <span class="symbol tilde">{{ tilde }}</span>
+    <input
+        [value]="promptValue"
+        (input)="onInput($event)"
+        #focusInput
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+        autofocus>
 </div>
+

@@ -2,8 +2,7 @@
 <div id="terminal-wrapper">
     <app-mode-selection/>
     <section id="inner-terminal">
-        <app-prompt></app-prompt>
-       
+        <app-prompt [validCommands]="validCommands"/>
     </section>
     <app-footer/>
 </div>
