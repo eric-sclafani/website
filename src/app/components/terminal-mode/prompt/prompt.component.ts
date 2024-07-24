@@ -7,18 +7,38 @@ import {
     ViewChild,
     Input,
 } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
     selector: 'app-prompt',
     standalone: true,
-    imports: [],
-    templateUrl: './prompt.component.html',
+    imports: [
+        NgClass
+    ],
+    template: `
+    <div id="prompt-wrapper">
+        <span class="prefix">{{ prefix }}</span>
+        <span class="symbol">{{ atSymbol }}</span>
+        <span class="domain">{{ domain }}</span>
+        <span class="symbol">{{ colon }}</span>
+        <span class="symbol">{{ dollar }}</span>
+        <span class="symbol tilde">{{ tilde }}</span>
+        <input
+            [value]="promptValue"
+            (input)="onInput($event)"
+            [ngClass]="currentClasses"
+            #focusInput
+            type="text"
+            autocomplete="off"
+            spellcheck="false"
+            autofocus>
+    </div>`,
     styleUrl: './prompt.component.scss'
 })
 export class PromptComponent implements OnInit, OnDestroy {
 
     @ViewChild('focusInput') focusInput: ElementRef;
-    @Input() validCommands:string[] = [];
+    @Input() validCommands: string[] = [];
 
     prefix = "visitor";
     atSymbol = '@';
@@ -27,11 +47,10 @@ export class PromptComponent implements OnInit, OnDestroy {
     dollar = "$";
     tilde = "~";
 
-    validInputColor = "rgb(163, 190, 140)";
-    normalInputColor = "white";
+    currentClasses:Record<string, boolean> = {};
 
     promptValue = '';
-    isValidCommand:boolean;
+    isValidCommand: boolean;
 
     private listener: () => void
 
@@ -40,6 +59,7 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.attachFocusEventHandler();
+        this.setCurrentClasses();
 
     }
 
@@ -48,37 +68,36 @@ export class PromptComponent implements OnInit, OnDestroy {
     }
 
 
-
-    private attachFocusEventHandler() {
+    private attachFocusEventHandler():void {
         this.listener = this.renderer.listen('document', 'click', () => {
             this.focusInput.nativeElement.focus();
         })
     }
 
-    private removeFocusEventHandler() {
-        // renderer.listen returns a function that removes the event handler when called
+    private removeFocusEventHandler():void {
         if (this.listener) {
             this.listener();
         }
     }
 
-    
     public onInput(event: Event): void {
         const inputElement = event.target as HTMLInputElement;
         this.promptValue = inputElement.value;
+        this.determineValidCommand();
+
+
+        this.setCurrentClasses();
+    }
+
+    private determineValidCommand():void{
         this.isValidCommand = this.validCommands.includes(this.promptValue.toLowerCase())
-
-
-        this.changeTextColorOnValidCommand(inputElement);
     }
 
-    
-    private changeTextColorOnValidCommand(input:HTMLInputElement):void {
-        if (this.isValidCommand){
-            input.style.color = this.validInputColor;
-        }
-        else {
-            input.style.color = this.normalInputColor;
+    private setCurrentClasses():void {
+        this.currentClasses = {
+            "valid-command": this.isValidCommand,
+            "invalid-command": !this.isValidCommand || this.promptValue == ""
         }
     }
+
 }

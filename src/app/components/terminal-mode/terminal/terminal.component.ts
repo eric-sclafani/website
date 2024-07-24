@@ -1,10 +1,6 @@
 import {
 	Component,
-	ElementRef,
-	Renderer2,
 	OnInit,
-	ViewChild
-
 } from '@angular/core';
 
 import { ModeSelectionComponent } from '../../shared/mode-selection/mode-selection.component';
@@ -24,8 +20,6 @@ import { PromptComponent } from '../prompt/prompt.component';
 })
 export class TerminalComponent implements OnInit {
 
-	private listener: () => void
-
 	// !IMPORTANT: need to have proper input sanitation for security purposes
 	validCommands = [
 		'help',
@@ -40,12 +34,12 @@ export class TerminalComponent implements OnInit {
 		'echo',
 		'ericspasswords'
 	]
-	constructor(private renderer: Renderer2) { }
+	constructor() { }
 
 	ngOnInit(): void {
 
 	}
 
-	
+
 
 }
