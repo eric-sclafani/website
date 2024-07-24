@@ -22,6 +22,7 @@ export class TerminalComponent implements OnInit {
 
 	// !IMPORTANT: need to have proper input sanitation for security purposes
 	validCommands = [
+		'',
 		'help',
 		'about',
 		'projects',
@@ -34,10 +35,18 @@ export class TerminalComponent implements OnInit {
 		'echo',
 		'ericspasswords'
 	]
+
+	command:string;
+
 	constructor() { }
 
 	ngOnInit(): void {
 
+	}
+
+	receiveCommand(command:string): void {
+		this.command = command;
+		console.log("Command", command)
 	}
 
 

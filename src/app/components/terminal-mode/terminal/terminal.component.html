@@ -2,7 +2,10 @@
 <div id="terminal-wrapper">
     <app-mode-selection/>
     <section id="inner-terminal">
-        <app-prompt [validCommands]="validCommands"/>
+        <app-prompt 
+        [validCommands]="validCommands"
+        (commandEmitter)="receiveCommand($event)"
+        />
     </section>
     <app-footer/>
 </div>

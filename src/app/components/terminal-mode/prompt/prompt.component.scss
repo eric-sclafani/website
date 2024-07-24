@@ -17,9 +17,11 @@ $symbol-color: rgb(136, 192, 208);
 }
 
 input {
+    @include text-format();
     background-color: $term-bg-color;
     border: none;
-    @include text-format();
+    width:65vw;
+    overflow-x:auto;
 
     &:focus {
         outline: none;

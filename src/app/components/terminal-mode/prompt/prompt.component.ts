@@ -6,6 +6,8 @@ import {
     ElementRef,
     ViewChild,
     Input,
+    Output,
+    EventEmitter
 } from '@angular/core';
 import { NgClass } from '@angular/common';
 
@@ -26,6 +28,7 @@ import { NgClass } from '@angular/common';
         <input
             [value]="promptValue"
             (input)="onInput($event)"
+            (keydown.enter)="sendValidCommandOnEnter()"
             [ngClass]="currentClasses"
             #focusInput
             type="text"
@@ -39,6 +42,7 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     @ViewChild('focusInput') focusInput: ElementRef;
     @Input() validCommands: string[] = [];
+    @Output() commandEmitter: EventEmitter<string> = new EventEmitter();
 
     prefix = "visitor";
     atSymbol = '@';
@@ -47,7 +51,7 @@ export class PromptComponent implements OnInit, OnDestroy {
     dollar = "$";
     tilde = "~";
 
-    currentClasses:Record<string, boolean> = {};
+    currentClasses: Record<string, boolean> = {};
 
     promptValue = '';
     isValidCommand: boolean;
@@ -59,44 +63,51 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.attachFocusEventHandler();
-        this.setCurrentClasses();
 
+        this.determineValidCommand();
+        this.setCurrentClasses();
     }
 
     ngOnDestroy(): void {
         this.removeFocusEventHandler();
     }
 
+    public onInput(event: Event): void {
+        const inputElement = event.target as HTMLInputElement;
+        this.promptValue = inputElement.value;
 
-    private attachFocusEventHandler():void {
+        this.determineValidCommand();
+        this.setCurrentClasses();
+    }
+
+    public sendValidCommandOnEnter():void {
+        if (this.isValidCommand){
+            this.commandEmitter.emit(this.promptValue)
+        }
+        
+    }
+
+    private attachFocusEventHandler(): void {
         this.listener = this.renderer.listen('document', 'click', () => {
             this.focusInput.nativeElement.focus();
         })
     }
 
-    private removeFocusEventHandler():void {
+    private removeFocusEventHandler(): void {
         if (this.listener) {
             this.listener();
         }
     }
 
-    public onInput(event: Event): void {
-        const inputElement = event.target as HTMLInputElement;
-        this.promptValue = inputElement.value;
-        this.determineValidCommand();
-
-
-        this.setCurrentClasses();
+    private determineValidCommand(): void {
+        const value = this.promptValue.toLowerCase();
+        this.isValidCommand = this.validCommands.includes(value);
     }
 
-    private determineValidCommand():void{
-        this.isValidCommand = this.validCommands.includes(this.promptValue.toLowerCase())
-    }
-
-    private setCurrentClasses():void {
+    private setCurrentClasses(): void {
         this.currentClasses = {
             "valid-command": this.isValidCommand,
-            "invalid-command": !this.isValidCommand || this.promptValue == ""
+            "invalid-command": !this.isValidCommand
         }
     }
 
