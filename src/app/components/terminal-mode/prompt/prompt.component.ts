@@ -63,13 +63,14 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.attachFocusEventHandler();
-
         this.determineValidCommand();
         this.setCurrentClasses();
     }
 
     ngOnDestroy(): void {
-        this.removeFocusEventHandler();
+        if (this.listener) {
+            this.listener();
+        }
     }
 
     public onInput(event: Event): void {
@@ -84,19 +85,12 @@ export class PromptComponent implements OnInit, OnDestroy {
         if (this.isValidCommand){
             this.commandEmitter.emit(this.promptValue)
         }
-        
     }
 
     private attachFocusEventHandler(): void {
         this.listener = this.renderer.listen('document', 'click', () => {
             this.focusInput.nativeElement.focus();
         })
-    }
-
-    private removeFocusEventHandler(): void {
-        if (this.listener) {
-            this.listener();
-        }
     }
 
     private determineValidCommand(): void {

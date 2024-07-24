@@ -44,11 +44,12 @@ export class TerminalComponent implements OnInit {
 
 	}
 
-	receiveCommand(command:string): void {
+	public receiveCommand(command:string): void {
 		this.command = command;
-		console.log("Command", command)
 	}
 
 
 
 }
+
+//TODO: tab completion, up and down arrow for past commands,
