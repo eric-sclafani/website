@@ -2,9 +2,12 @@
 <div id="terminal-wrapper">
     <app-mode-selection/>
     <section id="inner-terminal">
+        <div id="history-container"></div>
         <app-prompt 
         [validCommands]="validCommands"
+        [commandHistory]="commandHistory"
         (commandEmitter)="receiveCommand($event)"
+        (keydown.enter)="executeCommand()"
         />
     </section>
     <app-footer/>

@@ -1,11 +1,13 @@
 import {
 	Component,
+	ElementRef,
 	OnInit,
 } from '@angular/core';
 
 import { ModeSelectionComponent } from '../../shared/mode-selection/mode-selection.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { PromptComponent } from '../prompt/prompt.component';
+import { Command } from '../../../interfaces/command';
 
 @Component({
 	selector: 'app-terminal',
@@ -24,6 +26,7 @@ export class TerminalComponent implements OnInit {
 	validCommands = [
 		'',
 		'help',
+		'hello',
 		'about',
 		'projects',
 		'resume',
@@ -32,11 +35,13 @@ export class TerminalComponent implements OnInit {
 		'linkedin',
 		'clear',
 		'text',
-		'echo',
-		'ericspasswords'
+		'ericspasswords',
+		'funnyvideo'
 	]
 
-	command:string;
+	promptDiv: HTMLDivElement;
+	command:Command;
+	commandHistory:string[] = [];
 
 	constructor() { }
 
@@ -44,12 +49,42 @@ export class TerminalComponent implements OnInit {
 
 	}
 
-	public receiveCommand(command:string): void {
+	
+	public receiveCommand(command:Command): void {
 		this.command = command;
+	}
+
+
+	public executeCommand():void{
+		console.log(this.command)
+		this.saveCommandToHistory();
+		
+		/*
+		//- save command text to history
+		- capture the prompt div HTML
+		- somehow append prompt HTML to history-container
+		- execute appropriate method given valid command
+			- if invalid, show invalid command message
+		*/
+	}
+
+	private saveCommandToHistory(): void {
+		if (this.command.text != ""){
+			this.commandHistory.push(this.command.text);
+		}
 	}
 
 
 
 }
 
-//TODO: tab completion, up and down arrow for past commands,
+/* TODO:
+tab completion
+up and down arrow for past user inputs (valid and invalid)
+ericspasswords rick roll redirect
+funnyvideo (redirects users to a randomly selected funny Youtube video)
+	- https://www.youtube.com/watch?v=Otk4HJAx_9M
+
+
+
+*/

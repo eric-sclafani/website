@@ -10,6 +10,7 @@ import {
     EventEmitter
 } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { Command } from '../../../interfaces/command';
 
 @Component({
     selector: 'app-prompt',
@@ -18,38 +19,38 @@ import { NgClass } from '@angular/common';
         NgClass
     ],
     template: `
-    <div id="prompt-wrapper">
-        <span class="prefix">{{ prefix }}</span>
-        <span class="symbol">{{ atSymbol }}</span>
-        <span class="domain">{{ domain }}</span>
-        <span class="symbol">{{ colon }}</span>
-        <span class="symbol">{{ dollar }}</span>
-        <span class="symbol tilde">{{ tilde }}</span>
+    <div #promptWrapper id='prompt-wrapper'>
+        <span class='prefix'>{{ prefix }}</span>
+        <span class='symbol'>{{ atSymbol }}</span>
+        <span class='domain'>{{ domain }}</span>
+        <span class='symbol'>{{ colon }}</span>
+        <span class='symbol'>{{ dollar }}</span>
+        <span class='symbol tilde'>{{ tilde }}</span>
         <input
-            [value]="promptValue"
-            (input)="onInput($event)"
-            (keydown.enter)="sendValidCommandOnEnter()"
-            [ngClass]="currentClasses"
-            #focusInput
-            type="text"
-            autocomplete="off"
-            spellcheck="false"
+            [value]='promptValue'
+            (input)='onInput($event)'
+            [ngClass]='currentClasses'
+            #input
+            type='text'
+            autocomplete='off'
+            spellcheck='false'
             autofocus>
     </div>`,
     styleUrl: './prompt.component.scss'
 })
 export class PromptComponent implements OnInit, OnDestroy {
 
-    @ViewChild('focusInput') focusInput: ElementRef;
+    @ViewChild('input') input: ElementRef;
     @Input() validCommands: string[] = [];
-    @Output() commandEmitter: EventEmitter<string> = new EventEmitter();
-
-    prefix = "visitor";
+    @Input() commandHistory: string[] = [];
+    @Output() commandEmitter: EventEmitter<Command> = new EventEmitter();
+    
+    prefix = 'visitor';
     atSymbol = '@';
-    domain = "my-portfolio";
-    colon = ":";
-    dollar = "$";
-    tilde = "~";
+    domain = 'my-portfolio';
+    colon = ':';
+    dollar = '$';
+    tilde = '~';
 
     currentClasses: Record<string, boolean> = {};
 
@@ -58,13 +59,18 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     private listener: () => void
 
-    constructor(private renderer: Renderer2) { }
+    constructor(
+        private renderer: Renderer2, 
+        private promptRef: ElementRef<HTMLDivElement>
+    ) { }
 
 
     ngOnInit(): void {
         this.attachFocusEventHandler();
         this.determineValidCommand();
         this.setCurrentClasses();
+        this.sendCommand();
+
     }
 
     ngOnDestroy(): void {
@@ -79,17 +85,23 @@ export class PromptComponent implements OnInit, OnDestroy {
 
         this.determineValidCommand();
         this.setCurrentClasses();
+        this.sendCommand();     
+        console.log(this.commandHistory)  
     }
 
-    public sendValidCommandOnEnter():void {
-        if (this.isValidCommand){
-            this.commandEmitter.emit(this.promptValue)
-        }
+    private sendCommand():void {
+        this.commandEmitter.emit(
+            {
+                text : this.promptValue,
+                valid: this.isValidCommand,
+                div: this.promptRef
+            }
+        )
     }
 
     private attachFocusEventHandler(): void {
         this.listener = this.renderer.listen('document', 'click', () => {
-            this.focusInput.nativeElement.focus();
+            this.input.nativeElement.focus();
         })
     }
 
@@ -100,9 +112,12 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     private setCurrentClasses(): void {
         this.currentClasses = {
-            "valid-command": this.isValidCommand,
-            "invalid-command": !this.isValidCommand
+            'valid-command': this.isValidCommand,
+            'invalid-command': !this.isValidCommand
         }
     }
-
 }
+
+// todo: 
+//     up and down arrow for past user inputs (valid and invalid)
+//     tab completion
