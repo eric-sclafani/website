@@ -1,0 +1,40 @@
+@import "http://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css";
+
+$term-bg-color: #2f3136;
+$term-input-color: #e09888 ;
+$term-response-color:#ffff;
+$term-valid-command-color:#c6e8a9;
+$term-prefix-color: rgb(94, 129, 172);
+$term-domain-color: rgb(163, 190, 140);
+$term-symbol-color: rgb(136, 192, 208);
+
+@mixin text-format() {
+    font-size: 1.2rem;
+    font-family: "Hack", monospace;
+}
+
+.prefix {
+    color: $term-prefix-color;
+}
+.domain {
+    color: $term-domain-color;
+}
+.symbol {
+    color: $term-symbol-color;
+}
+.tilde {
+    margin: 0 7px 0 7px;
+}
+
+.valid-command {
+    color: $term-valid-command-color;
+}
+
+.invalid-command {
+    color:$term-input-color;
+}
+
+.prompt-wrapper {
+    @include text-format();
+    font-weight: 600;
+}

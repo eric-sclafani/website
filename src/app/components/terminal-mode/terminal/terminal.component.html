@@ -1,13 +1,20 @@
-
 <div id="terminal-wrapper">
     <app-mode-selection/>
     <section id="inner-terminal">
-        <div id="history-container"></div>
+        <section id="history">
+            @for (resp of terminalResponses; track resp) {
+                <div class="prompt-wrapper"> 
+                    <div class="valid-command">response: {{ resp.commandText }}</div>
+                        
+
+                </div>
+            }
+        </section>
         <app-prompt 
         [validCommands]="validCommands"
         [commandHistory]="commandHistory"
-        (commandEmitter)="receiveCommand($event)"
-        (keydown.enter)="executeCommand()"
+        (commandEmitter)="command = $event"
+        (keydown.enter)="executeCommandOnEnter()"
         />
     </section>
     <app-footer/>

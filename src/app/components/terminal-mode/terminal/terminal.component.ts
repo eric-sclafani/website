@@ -1,13 +1,13 @@
 import {
 	Component,
-	ElementRef,
 	OnInit,
 } from '@angular/core';
 
 import { ModeSelectionComponent } from '../../shared/mode-selection/mode-selection.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { PromptComponent } from '../prompt/prompt.component';
-import { Command } from '../../../interfaces/command';
+
+import { Command, TerminalResponse } from '../../../interfaces/terminal';
 
 @Component({
 	selector: 'app-terminal',
@@ -17,12 +17,11 @@ import { Command } from '../../../interfaces/command';
 		FooterComponent,
 		PromptComponent
 	],
-	templateUrl: './terminal.component.html',
+	templateUrl: 'terminal.component.html',
 	styleUrl: './terminal.component.scss'
 })
 export class TerminalComponent implements OnInit {
 
-	// !IMPORTANT: need to have proper input sanitation for security purposes
 	validCommands = [
 		'',
 		'help',
@@ -39,9 +38,10 @@ export class TerminalComponent implements OnInit {
 		'funnyvideo'
 	]
 
-	promptDiv: HTMLDivElement;
-	command:Command;
-	commandHistory:string[] = [];
+	command: Command;
+	commandHistory: Command[] = [];
+	terminalResponses: TerminalResponse[] = [];
+
 
 	constructor() { }
 
@@ -49,41 +49,67 @@ export class TerminalComponent implements OnInit {
 
 	}
 
-	
-	public receiveCommand(command:Command): void {
-		this.command = command;
-	}
-
-
-	public executeCommand():void{
+	public executeCommandOnEnter(): void {
 		console.log(this.command)
 		this.saveCommandToHistory();
-		
-		/*
-		//- save command text to history
-		- capture the prompt div HTML
-		- somehow append prompt HTML to history-container
-		- execute appropriate method given valid command
-			- if invalid, show invalid command message
-		*/
+		this.runCommandIfValid();
 	}
 
 	private saveCommandToHistory(): void {
-		if (this.command.text != ""){
-			this.commandHistory.push(this.command.text);
+		if (this.command.text != "") {
+			this.commandHistory.push(this.command);
 		}
 	}
 
+	private runCommandIfValid(): void {
+		let text = "";
+		if (this.command.valid) {
+			// need to determine which command method to run
+			// text will equal what information needs to be sent to terminal
+			text = "this is a valid command!!!"
+		}
+		else {
+			text = "this is an invalid command!!!"
+		}
+
+		const response = this.createTerminalResponse(text);
+		this.terminalResponses.push(response);
+	}
+
+	private createTerminalResponse(responseText: string): TerminalResponse {
+		return {
+			commandText: this.command.text,
+			promptData: this.parsePrompt(this.command.promptDiv),
+			responseText: responseText
+		}
+	}
+
+	private parsePrompt(divs: HTMLCollection): Record<string, string>[] {
+		const data: Record<string, string>[] = [];
+		for (let i = 0; i < divs.length; i++) {
+			const div = divs[i];
+			data.push({
+				html: div.innerHTML,
+				className: div.className
+			})
+		}
+		return data;
+	}
 
 
 }
 
+
+
+
+
 /* TODO:
-tab completion
-up and down arrow for past user inputs (valid and invalid)
 ericspasswords rick roll redirect
 funnyvideo (redirects users to a randomly selected funny Youtube video)
+	- https://stackoverflow.com/questions/42775017/angular-2-redirect-to-an-external-url-and-open-in-a-new-tab	 
 	- https://www.youtube.com/watch?v=Otk4HJAx_9M
+
+maybe have commands to change style of terminal
 
 
 
