@@ -79,23 +79,12 @@ export class TerminalComponent implements OnInit {
 	private createTerminalResponse(responseText: string): TerminalResponse {
 		return {
 			commandText: this.command.text,
-			promptData: this.parsePrompt(this.command.promptDiv),
+			valid: this.command.valid,
 			responseText: responseText
 		}
 	}
 
-	private parsePrompt(divs: HTMLCollection): Record<string, string>[] {
-		const data: Record<string, string>[] = [];
-		for (let i = 0; i < divs.length; i++) {
-			const div = divs[i];
-			data.push({
-				html: div.innerHTML,
-				className: div.className
-			})
-		}
-		return data;
-	}
-
+	
 
 }
 

@@ -20,12 +20,12 @@ import { Command } from '../../../interfaces/terminal';
     ],
     template: `
     <div #promptWrapper class='prompt-wrapper'>
-        <span class='prefix'>{{ prefix }}</span>
-        <span class='symbol'>{{ atSymbol }}</span>
-        <span class='domain'>{{ domain }}</span>
-        <span class='symbol'>{{ colon }}</span>
-        <span class='symbol'>{{ dollar }}</span>
-        <span class='symbol tilde'>{{ tilde }}</span>
+        <span class='prefix'>visitor</span>
+        <span class='symbol'>{{ '@' }}</span>
+        <span class='domain'>my-portfolio</span>
+        <span class='symbol'>:</span>
+        <span class='symbol'>$</span>
+        <span class='symbol tilde'>~</span>
         <input
             [value]='promptValue'
             [ngClass]='currentClasses'
@@ -46,19 +46,12 @@ export class PromptComponent implements OnInit, OnDestroy {
     @Input() commandHistory: Command[] = [];
     @Output() commandEmitter: EventEmitter<Command> = new EventEmitter();
 
-    prefix = 'visitor';
-    atSymbol = '@';
-    domain = 'my-portfolio';
-    colon = ':';
-    dollar = '$';
-    tilde = '~';
-
     currentClasses: Record<string, boolean> = {};
 
     promptValue = '';
     isValidCommand: boolean;
 
-    private listener: () => void
+    private listener: () => void;
 
     constructor(
         private renderer: Renderer2,

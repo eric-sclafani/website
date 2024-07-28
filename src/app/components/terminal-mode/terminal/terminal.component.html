@@ -4,10 +4,15 @@
         <section id="history">
             @for (resp of terminalResponses; track resp) {
                 <div class="prompt-wrapper"> 
-                    <div class="valid-command">response: {{ resp.commandText }}</div>
-                        
-
+                    <span class="prefix">visitor</span>
+                    <span class="symbol">{{ '@' }}</span>
+                    <span class="domain">my-portfolio</span>
+                    <span class="symbol">:</span>
+                    <span class="symbol">$</span>
+                    <span class="symbol tilde">~</span>
+                    <span [class]="resp.valid ? 'valid-command' : 'invalid-command'">{{ resp.commandText }}</span>
                 </div>
+                <div class="response">{{resp.responseText}}</div>
             }
         </section>
         <app-prompt 

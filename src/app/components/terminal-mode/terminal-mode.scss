@@ -13,6 +13,12 @@ $term-symbol-color: rgb(136, 192, 208);
     font-family: "Hack", monospace;
 }
 
+.prompt-wrapper {
+    @include text-format();
+    font-weight: 600;
+    margin-bottom:10px;
+}
+
 .prefix {
     color: $term-prefix-color;
 }
@@ -34,7 +40,6 @@ $term-symbol-color: rgb(136, 192, 208);
     color:$term-input-color;
 }
 
-.prompt-wrapper {
-    @include text-format();
-    font-weight: 600;
+.response{
+    color: $term-response-color;
 }

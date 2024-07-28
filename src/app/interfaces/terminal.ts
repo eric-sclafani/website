@@ -6,6 +6,6 @@ export interface Command {
 
 export interface TerminalResponse {
 	commandText:string;
-	promptData: Record<string,string>[];
+    valid: boolean;
 	responseText: string;
 }
