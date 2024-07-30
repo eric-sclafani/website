@@ -7,50 +7,32 @@ import {
     ViewChild,
     Input,
     Output,
-    EventEmitter
-} from '@angular/core';
-import { NgClass } from '@angular/common';
-import { Command } from '../../../interfaces/terminal';
+    EventEmitter,
+} from "@angular/core";
+import { NgClass } from "@angular/common";
+import { Command } from "../../../interfaces/terminal";
 
 @Component({
-    selector: 'app-prompt',
+    selector: "app-prompt",
     standalone: true,
     imports: [
         NgClass
     ],
-    template: `
-    <div #promptWrapper class='prompt-wrapper'>
-        <span class='prefix'>visitor</span>
-        <span class='symbol'>{{ '@' }}</span>
-        <span class='domain'>my-portfolio</span>
-        <span class='symbol'>:</span>
-        <span class='symbol'>$</span>
-        <span class='symbol tilde'>~</span>
-        <input
-            [value]='promptValue'
-            [ngClass]='currentClasses'
-            (input)='onInput($event)'
-            (keydown.enter)="resetValue()"
-            #input
-            type='text'
-            autocomplete='off'
-            spellcheck='false'
-            autofocus>
-    </div>`,
-    styleUrl: './prompt.component.scss'
+    templateUrl: "./prompt.component.html",
+    styleUrl: "./prompt.component.scss"
 })
 export class PromptComponent implements OnInit, OnDestroy {
 
-    @ViewChild('input') input: ElementRef;
+    @ViewChild("input") input: ElementRef;
     @Input() validCommands: string[] = [];
     @Input() commandHistory: Command[] = [];
     @Output() commandEmitter: EventEmitter<Command> = new EventEmitter();
 
     currentClasses: Record<string, boolean> = {};
+    promptValue = "";
 
-    promptValue = '';
-    isValidCommand: boolean;
-
+    private isValidCommand: boolean;
+    private currentCommandIndex = 0;
     private listener: () => void;
 
     constructor(
@@ -61,9 +43,7 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.attachFocusEventHandler();
-        this.determineValidCommand();
-        this.setCurrentClasses();
-        this.sendCommand();
+        this.performChecksAndSendCommand();
     }
 
     ngOnDestroy(): void {
@@ -74,13 +54,55 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     public resetValue() {
         this.ngOnInit();
-        this.promptValue = '';
+        this.promptValue = "";
     }
 
     public onInput(event: Event): void {
         const inputElement = event.target as HTMLInputElement;
         this.promptValue = inputElement.value;
+        this.performChecksAndSendCommand();
 
+    }
+
+    public cycleThroughCommandHistory(event: any) {
+        event.preventDefault();
+        let value = "";
+        const commandCount = this.commandHistory.length;
+        let position = (commandCount - this.currentCommandIndex) - 1;
+        if (commandCount) {
+            if (event.code == "ArrowUp") {
+                
+                console.log("Position: ", position)
+                console.log("commandCount: ", commandCount)
+                if (position != 0) {
+                    this.currentCommandIndex++;
+                }
+                value = this.commandHistory[position].text;
+
+            }
+
+            else if (event.code == "ArrowDown") {
+
+                console.log("Position: ", position)
+                console.log("commandCount: ", commandCount)
+
+                if (position < commandCount - 1) {
+                    this.currentCommandIndex--;
+                }
+
+                value = this.commandHistory[position].text;
+                
+                
+
+            }
+
+            this.promptValue = value;
+            this.performChecksAndSendCommand();
+        }
+
+    }
+
+    private performChecksAndSendCommand(): void {
         this.determineValidCommand();
         this.setCurrentClasses();
         this.sendCommand();
@@ -103,7 +125,7 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     private attachFocusEventHandler(): void {
         if (!this.listener) {
-            this.listener = this.renderer.listen('document', 'click', () => {
+            this.listener = this.renderer.listen("document", "click", () => {
                 this.input.nativeElement.focus();
             })
             console.info("Focus event handler attached!")
@@ -113,12 +135,11 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     private setCurrentClasses(): void {
         this.currentClasses = {
-            'valid-command': this.isValidCommand,
-            'invalid-command': !this.isValidCommand
+            "valid-command": this.isValidCommand,
+            "invalid-command": !this.isValidCommand
         }
     }
 }
 
 // todo: 
-//     up and down arrow for past user inputs (valid and invalid)
 //     tab completion

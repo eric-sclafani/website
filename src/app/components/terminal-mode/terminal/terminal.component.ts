@@ -35,7 +35,7 @@ export class TerminalComponent implements OnInit {
 		'clear',
 		'text',
 		'ericspasswords',
-		'funnyvideo'
+		'funny'
 	]
 
 	command: Command;

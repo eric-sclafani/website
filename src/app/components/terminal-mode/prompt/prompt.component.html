@@ -1,0 +1,20 @@
+<div #promptWrapper class="prompt-wrapper">
+    <span class="prefix">visitor</span>
+    <span class="symbol">{{ "@" }}</span>
+    <span class="domain">my-portfolio</span>
+    <span class="symbol">:</span>
+    <span class="symbol">$</span>
+    <span class="symbol tilde">~</span>
+    <input
+        [value]="promptValue"
+        [ngClass]="currentClasses"
+        (input)="onInput($event)"
+        (keydown.enter)="resetValue()"
+        (keydown.ArrowUp)="cycleThroughCommandHistory($event)"
+        (keydown.ArrowDown)="cycleThroughCommandHistory($event)"
+        #input
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+        autofocus>
+</div>
