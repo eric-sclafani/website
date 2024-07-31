@@ -64,36 +64,45 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     }
 
+    //? WIP: ON HOLD
     public cycleThroughCommandHistory(event: any) {
         event.preventDefault();
         let value = "";
+
         const commandCount = this.commandHistory.length;
-        let position = (commandCount - this.currentCommandIndex) - 1;
+        let position = commandCount - 1;
         if (commandCount) {
             if (event.code == "ArrowUp") {
-                
-                console.log("Position: ", position)
+
+                position = position + this.currentCommandIndex;
+
                 console.log("commandCount: ", commandCount)
-                if (position != 0) {
-                    this.currentCommandIndex++;
+                console.log("Index: ", this.currentCommandIndex)
+                console.log("Position (position - index): ", position)
+                if (position != 0){
+                    this.currentCommandIndex--;
+                } 
+                else {
+
                 }
                 value = this.commandHistory[position].text;
-
             }
 
             else if (event.code == "ArrowDown") {
 
-                console.log("Position: ", position)
+                position = position + this.currentCommandIndex;
                 console.log("commandCount: ", commandCount)
+                console.log("Index: ", this.currentCommandIndex)
+                console.log("Position (position - index): ", position)
 
-                if (position < commandCount - 1) {
-                    this.currentCommandIndex--;
+                if (position != 0){
+                    this.currentCommandIndex++;
                 }
+                else {
 
+                }
+                
                 value = this.commandHistory[position].text;
-                
-                
-
             }
 
             this.promptValue = value;

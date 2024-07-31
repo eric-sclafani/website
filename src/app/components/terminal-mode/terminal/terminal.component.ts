@@ -45,6 +45,8 @@ export class TerminalComponent implements OnInit {
 
 	constructor() { }
 
+	//* IDEA: add a "Learning Journey" or someshit on my website explaining
+	//* my field switch and journey to learn new full stack technologies, etc..
 	ngOnInit(): void {
 
 	}
