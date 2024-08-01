@@ -109,6 +109,8 @@ ericspasswords rick roll redirect
 funny (redirects users to a randomly selected funny Youtube video)
 	- https://stackoverflow.com/questions/42775017/angular-2-redirect-to-an-external-url-and-open-in-a-new-tab	 
 	- https://www.youtube.com/watch?v=Otk4HJAx_9M
+	- https://www.youtube.com/watch?v=lod_LUp3ggc
+	
 
 maybe have commands to change style of terminal
 
