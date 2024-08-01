@@ -15,8 +15,8 @@ export class InfoService {
 
     }
 
-    public resume() {
-        window.open("assets/resume.pdf", "_blank");
+    public resumePath():string {
+        return "assets/resume/resume.pdf"
     }
 
     public contact():Record<string, string> {
