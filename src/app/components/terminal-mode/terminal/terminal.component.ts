@@ -8,6 +8,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 import { PromptComponent } from '../prompt/prompt.component';
 
 import { Command, TerminalResponse } from '../../../interfaces/terminal';
+import { InfoService } from '../../../services/info.service';
 
 @Component({
 	selector: 'app-terminal',
@@ -30,8 +31,8 @@ export class TerminalComponent implements OnInit {
 		'projects',
 		'resume',
 		'github',
-		'repo',
 		'linkedin',
+		'repo',
 		'clear',
 		'text',
 		'ericspasswords',
@@ -43,18 +44,24 @@ export class TerminalComponent implements OnInit {
 	terminalResponses: TerminalResponse[] = [];
 
 
-	constructor() { }
+	constructor(private _info: InfoService) { }
 
 	//* IDEA: add a "Learning Journey" or someshit on my website explaining
 	//* my field switch and journey to learn new full stack technologies, etc..
 	ngOnInit(): void {
+
+
 
 	}
 
 	public executeCommandOnEnter(): void {
 		console.log(this.command)
 		this.saveCommandToHistory();
+
+		// router will decide which method to execute and return that method
+		// method will be called here to ...
 		this.runCommandIfValid();
+
 	}
 
 	private saveCommandToHistory(): void {
@@ -64,11 +71,10 @@ export class TerminalComponent implements OnInit {
 	}
 
 	private runCommandIfValid(): void {
-		let text = "";
+
+		let text:string;
 		if (this.command.valid) {
-			// need to determine which command method to run
-			// text will equal what information needs to be sent to terminal
-			text = "this is a valid command!!!"
+			text = this.command.text != "" ? "VALID COMMAND" : "";
 		}
 		else {
 			text = "this is an invalid command!!!"
@@ -86,17 +92,21 @@ export class TerminalComponent implements OnInit {
 		}
 	}
 
+	private commandRouter(commandText:string){
+
+	}
+
 	
 
 }
 
 
-
+//! Important: for resume, alongside attempting to open a new tab, also display the pdf link in case new tab is blocked
 
 
 /* TODO:
 ericspasswords rick roll redirect
-funnyvideo (redirects users to a randomly selected funny Youtube video)
+funny (redirects users to a randomly selected funny Youtube video)
 	- https://stackoverflow.com/questions/42775017/angular-2-redirect-to-an-external-url-and-open-in-a-new-tab	 
 	- https://www.youtube.com/watch?v=Otk4HJAx_9M
 
