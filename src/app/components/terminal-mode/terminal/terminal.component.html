@@ -12,14 +12,17 @@
                     <span class="symbol tilde">~</span>
                     <span [class]="resp.valid ? 'valid-command' : 'invalid-command'">{{ resp.commandText }}</span>
                 </div>
-                <div class="response">{{resp.responseText}}</div>
+
+                <div class="response">
+                    {{ resp.responseText }}
+                </div>
             }
         </section>
         <app-prompt 
         [validCommands]="validCommands"
         [commandHistory]="commandHistory"
         (commandEmitter)="command = $event"
-        (keydown.enter)="executeCommandOnEnter()"
+        (keydown.enter)="executeCommand()"
         />
     </section>
     <app-footer/>

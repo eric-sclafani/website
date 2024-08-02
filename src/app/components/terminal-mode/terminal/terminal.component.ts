@@ -43,23 +43,24 @@ export class TerminalComponent implements OnInit {
 	commandHistory: Command[] = [];
 	terminalResponses: TerminalResponse[] = [];
 
+	public about:any;
+	public projects: any;
+	public resumePath: any;
+	public contact: any;
+
+	public canDisplayCommandResponse = false;
 
 	constructor(private _info: InfoService) { }
 
-	//* IDEA: add a "Learning Journey" or someshit on my website explaining
-	//* my field switch and journey to learn new full stack technologies, etc..
 	ngOnInit(): void {
-
-
-
+		this.about = this._info.about();
+		this.projects = this._info.projects();
+		this.resumePath = this._info.resumePath();
+		this.contact = this._info.contact();
 	}
 
-	public executeCommandOnEnter(): void {
-		console.log(this.command)
+	public executeCommand(): void {
 		this.saveCommandToHistory();
-
-		// router will decide which method to execute and return that method
-		// method will be called here to ...
 		this.runCommandIfValid();
 
 	}
@@ -74,7 +75,7 @@ export class TerminalComponent implements OnInit {
 
 		let text:string;
 		if (this.command.valid) {
-			text = this.command.text != "" ? "VALID COMMAND" : "";
+			text = "VALID COMMAND";
 		}
 		else {
 			text = "this is an invalid command!!!"
@@ -91,17 +92,13 @@ export class TerminalComponent implements OnInit {
 			responseText: responseText
 		}
 	}
-
-	private commandRouter(commandText:string){
-
-	}
-
-	
-
 }
 
 
 //! Important: for resume, alongside attempting to open a new tab, also display the pdf link in case new tab is blocked
+//! (do this for any external link command like "funny" too)
+//* About: use this maybe https://github.com/ryo-ma/github-profile-trophy 
+//* Projects: use same or similar code to display repos like here https://eric-sclafani.github.io/repositories/ (in text mode)
 
 
 /* TODO:

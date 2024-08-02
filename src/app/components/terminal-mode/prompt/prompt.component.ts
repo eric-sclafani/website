@@ -15,9 +15,7 @@ import { Command } from "../../../interfaces/terminal";
 @Component({
     selector: "app-prompt",
     standalone: true,
-    imports: [
-        NgClass
-    ],
+    imports: [ NgClass ],
     templateUrl: "./prompt.component.html",
     styleUrl: "./prompt.component.scss"
 })
@@ -64,7 +62,7 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     }
 
-    //? WIP: ON HOLD
+    //! WIP: ON HOLD
     public cycleThroughCommandHistory(event: any) {
         event.preventDefault();
         let value = "";
@@ -127,7 +125,6 @@ export class PromptComponent implements OnInit, OnDestroy {
             {
                 text: this.promptValue,
                 valid: this.isValidCommand,
-                promptDiv: this.promptRef.nativeElement.children[0].children
             }
         )
     }
