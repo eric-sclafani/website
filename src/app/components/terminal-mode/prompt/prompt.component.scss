@@ -1,6 +1,4 @@
-@import "../../../../styles.scss";
 @import "../terminal-mode.scss";
-
 
 input {
     @include text-format();
@@ -13,4 +11,37 @@ input {
     &:focus {
         outline: none;
     }
+}
+
+.prompt-wrapper {
+    @include text-format();
+    font-weight: 600;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.response {
+    @include text-format();
+    color: $term-response-color;
+}
+
+.prefix {
+    color: $term-prefix-color;
+}
+.domain {
+    color: $term-domain-color;
+}
+.symbol {
+    color: $term-symbol-color;
+}
+.tilde {
+    margin: 0 7px 0 7px;
+}
+
+.valid-command {
+    color: $term-valid-command-color;
+}
+
+.invalid-command {
+    color:$term-input-color;
 }

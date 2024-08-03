@@ -1,4 +1,3 @@
-@import "../../../../styles.scss";
 @import "../terminal-mode.scss";
 
 
@@ -13,7 +12,7 @@
 
 #inner-terminal {
     margin: 10px 15px 10px 15px;
-    border:solid lightblue;
+    border:solid $term-border-color;
     border-radius: 6px;
     padding:30px;
     display:flex;

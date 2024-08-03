@@ -11,7 +11,13 @@
                 <div class="response">
 
                     @if (cmd.valid){
-                       <div>{{ cmd.text != '' ? "Correct" : " "}}</div> 
+                        @switch (cmd.text) {
+                            
+                            @case ('hello'){
+                                Hello!!! 👋
+                            }
+                        
+                        } 
                     }
                     @else {
                         <div>Command not found: {{ cmd.text }}. Type 'help' to see a list of valid commands.</div>

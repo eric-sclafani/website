@@ -10,7 +10,7 @@
         [value]="promptValue"
         [ngClass]="currentClasses"
         (input)="onInput($event)"
-        (keydown.enter)="resetValue()"
+        (keydown.enter)="refreshPrompt()"
         (keydown.ArrowUp)="cycleThroughCommandHistory($event)"
         (keydown.ArrowDown)="cycleThroughCommandHistory($event)"
         #input
@@ -21,6 +21,6 @@
         >
     }
     @else {
-        <span [class]="isValidCommand ? 'valid-command' : 'invalid-command'">{{submittedCommand.text}}</span>
+        <span [class]="submittedCommand.valid ? 'valid-command' : 'invalid-command'"> {{ submittedCommand.text }} </span>
     }
 </div>

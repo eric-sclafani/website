@@ -23,8 +23,8 @@ export class PromptComponent implements OnInit, OnDestroy {
 
     @ViewChild('input') input: ElementRef;
     @Input() validCommands: string[] = [];
-    @Input() commandHistory: Command[] = [];
     @Input() includeUserInput: boolean = true;
+    @Input() commandHistory: Command[];
     @Input() submittedCommand:Command;
     @Output() commandEmitter: EventEmitter<Command> = new EventEmitter();
 
@@ -41,10 +41,8 @@ export class PromptComponent implements OnInit, OnDestroy {
 
 
     ngOnInit(): void {
-        this.attachFocusEventHandler(); // see about moving to terminal component
+        this.attachFocusEventHandler();
         this.performChecksAndSendCommand();
-
-        // call method to remove empty strings from commandHistory
     }
 
     ngOnDestroy(): void {
@@ -53,7 +51,7 @@ export class PromptComponent implements OnInit, OnDestroy {
         }
     }
 
-    public resetValue() {
+    public refreshPrompt() {
         this.performChecksAndSendCommand();
         this.promptValue = '';
 
@@ -71,8 +69,10 @@ export class PromptComponent implements OnInit, OnDestroy {
         event.preventDefault();
         let value = '';
 
+        this.pruneCommandHistory();
         const commandCount = this.commandHistory.length;
         let position = commandCount - 1;
+
         if (commandCount) {
             if (event.code == 'ArrowUp') {
 
@@ -129,7 +129,6 @@ export class PromptComponent implements OnInit, OnDestroy {
             text: this.promptValue,
             valid: this.isValidCommand,
         }
-        //console.log("Command emitted: ", command)
         this.commandEmitter.emit(command)
     }
 
@@ -148,6 +147,10 @@ export class PromptComponent implements OnInit, OnDestroy {
             'valid-command': this.isValidCommand,
             'invalid-command': !this.isValidCommand
         }
+    }
+
+    private pruneCommandHistory(): void{
+        this.commandHistory = this.commandHistory.filter((cmd) => cmd.text != '');
     }
 }
 

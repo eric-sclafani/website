@@ -34,15 +34,17 @@ export class TerminalComponent implements OnInit {
 		'linkedin',
 		'repo',
 		'clear',
+		'cl',
 		'text',
 		'ericspasswords',
 		'funny'
 	]
 
+
 	command: Command;
 	commandHistory: Command[] = [];
 
-	public about:any;
+	public about: any;
 	public projects: any;
 	public resumePath: any;
 	public contact: any;
@@ -59,21 +61,49 @@ export class TerminalComponent implements OnInit {
 
 	public executeCommand(): void {
 		this.saveCommandToHistory();
-		
+
 	}
 
 	private saveCommandToHistory(): void {
 		this.commandHistory.push(this.command);
 	}
 
+	private commandRouter(commandText: string): void {
+
+		switch (commandText) {
+			case 'resume':
+				break;
+
+			case 'linkedin':
+				break;
+
+			case 'github':
+				break;
+
+			case 'repo':
+				break;
+
+			case 'clear':
+				break;
+
+			case 'text':
+				break;
+
+			case 'ericspasswords':
+				break;
+
+			case 'funny':
+				break;
+
+		}
+	}
+
 
 }
 
-//? IDEA: modify prompt html such that it can optionally return the input box,
-//? meaning I wouldn't have to have repeated prompt-wrapper code in two separate files
 
 //! Important: for resume, alongside attempting to open a new tab, also display the pdf link in case new tab is blocked
-//! (do this for any external link command like "funny" too)
+//! (do this for any external link redirect commands)
 
 // * In text mode:
 //* About - use this maybe https://github.com/ryo-ma/github-profile-trophy 
