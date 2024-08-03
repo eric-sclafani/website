@@ -7,7 +7,7 @@ import { ModeSelectionComponent } from '../../shared/mode-selection/mode-selecti
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { PromptComponent } from '../prompt/prompt.component';
 
-import { Command, TerminalResponse } from '../../../interfaces/terminal';
+import { Command } from '../../../interfaces/terminal';
 import { InfoService } from '../../../services/info.service';
 
 @Component({
@@ -41,14 +41,12 @@ export class TerminalComponent implements OnInit {
 
 	command: Command;
 	commandHistory: Command[] = [];
-	terminalResponses: TerminalResponse[] = [];
 
 	public about:any;
 	public projects: any;
 	public resumePath: any;
 	public contact: any;
 
-	public canDisplayCommandResponse = false;
 
 	constructor(private _info: InfoService) { }
 
@@ -61,44 +59,25 @@ export class TerminalComponent implements OnInit {
 
 	public executeCommand(): void {
 		this.saveCommandToHistory();
-		this.runCommandIfValid();
-
+		
 	}
 
 	private saveCommandToHistory(): void {
-		if (this.command.text != "") {
-			this.commandHistory.push(this.command);
-		}
+		this.commandHistory.push(this.command);
 	}
 
-	private runCommandIfValid(): void {
 
-		let text:string;
-		if (this.command.valid) {
-			text = "VALID COMMAND";
-		}
-		else {
-			text = "this is an invalid command!!!"
-		}
-
-		const response = this.createTerminalResponse(text);
-		this.terminalResponses.push(response);
-	}
-
-	private createTerminalResponse(responseText: string): TerminalResponse {
-		return {
-			commandText: this.command.text,
-			valid: this.command.valid,
-			responseText: responseText
-		}
-	}
 }
 
+//? IDEA: modify prompt html such that it can optionally return the input box,
+//? meaning I wouldn't have to have repeated prompt-wrapper code in two separate files
 
 //! Important: for resume, alongside attempting to open a new tab, also display the pdf link in case new tab is blocked
 //! (do this for any external link command like "funny" too)
-//* About: use this maybe https://github.com/ryo-ma/github-profile-trophy 
-//* Projects: use same or similar code to display repos like here https://eric-sclafani.github.io/repositories/ (in text mode)
+
+// * In text mode:
+//* About - use this maybe https://github.com/ryo-ma/github-profile-trophy 
+//* Projects - use same or similar code to display repos like here https://eric-sclafani.github.io/repositories/ 
 
 
 /* TODO:

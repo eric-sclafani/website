@@ -1,11 +1,12 @@
-<div #promptWrapper class="prompt-wrapper">
+<div class="prompt-wrapper">
     <span class="prefix">visitor</span>
     <span class="symbol">{{ "@" }}</span>
     <span class="domain">my-portfolio</span>
     <span class="symbol">:</span>
     <span class="symbol">$</span>
     <span class="symbol tilde">~</span>
-    <input
+    @if (includeUserInput){
+        <input
         [value]="promptValue"
         [ngClass]="currentClasses"
         (input)="onInput($event)"
@@ -16,5 +17,10 @@
         type="text"
         autocomplete="off"
         spellcheck="false"
-        autofocus>
+        autofocus
+        >
+    }
+    @else {
+        <span [class]="isValidCommand ? 'valid-command' : 'invalid-command'">{{submittedCommand.text}}</span>
+    }
 </div>

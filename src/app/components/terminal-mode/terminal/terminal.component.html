@@ -2,19 +2,20 @@
     <app-mode-selection/>
     <section id="inner-terminal">
         <section id="history">
-            @for (resp of terminalResponses; track resp) {
-                <div class="prompt-wrapper"> 
-                    <span class="prefix">visitor</span>
-                    <span class="symbol">{{ '@' }}</span>
-                    <span class="domain">my-portfolio</span>
-                    <span class="symbol">:</span>
-                    <span class="symbol">$</span>
-                    <span class="symbol tilde">~</span>
-                    <span [class]="resp.valid ? 'valid-command' : 'invalid-command'">{{ resp.commandText }}</span>
-                </div>
 
+            @for (cmd of commandHistory; track cmd) {
+                <app-prompt 
+                [submittedCommand]="cmd"
+                [includeUserInput]="false"
+                />
                 <div class="response">
-                    {{ resp.responseText }}
+
+                    @if (cmd.valid){
+                       <div>{{ cmd.text != '' ? "Correct" : " "}}</div> 
+                    }
+                    @else {
+                        <div>Command not found: {{ cmd.text }}. Type 'help' to see a list of valid commands.</div>
+                    }
                 </div>
             }
         </section>

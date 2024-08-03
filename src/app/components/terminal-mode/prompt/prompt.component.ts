@@ -8,40 +8,43 @@ import {
     Input,
     Output,
     EventEmitter,
-} from "@angular/core";
-import { NgClass } from "@angular/common";
-import { Command } from "../../../interfaces/terminal";
+} from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Command } from '../../../interfaces/terminal';
 
 @Component({
-    selector: "app-prompt",
+    selector: 'app-prompt',
     standalone: true,
     imports: [ NgClass ],
-    templateUrl: "./prompt.component.html",
-    styleUrl: "./prompt.component.scss"
+    templateUrl: './prompt.component.html',
+    styleUrl: './prompt.component.scss'
 })
 export class PromptComponent implements OnInit, OnDestroy {
 
-    @ViewChild("input") input: ElementRef;
+    @ViewChild('input') input: ElementRef;
     @Input() validCommands: string[] = [];
     @Input() commandHistory: Command[] = [];
+    @Input() includeUserInput: boolean = true;
+    @Input() submittedCommand:Command;
     @Output() commandEmitter: EventEmitter<Command> = new EventEmitter();
 
-    currentClasses: Record<string, boolean> = {};
-    promptValue = "";
+    public currentClasses: Record<string, boolean> = {};
+    public promptValue = '';
+    public isValidCommand: boolean;
 
-    private isValidCommand: boolean;
     private currentCommandIndex = 0;
     private listener: () => void;
 
     constructor(
         private renderer: Renderer2,
-        private promptRef: ElementRef<HTMLDivElement>
     ) { }
 
 
     ngOnInit(): void {
-        this.attachFocusEventHandler();
+        this.attachFocusEventHandler(); // see about moving to terminal component
         this.performChecksAndSendCommand();
+
+        // call method to remove empty strings from commandHistory
     }
 
     ngOnDestroy(): void {
@@ -51,8 +54,9 @@ export class PromptComponent implements OnInit, OnDestroy {
     }
 
     public resetValue() {
-        this.ngOnInit();
-        this.promptValue = "";
+        this.performChecksAndSendCommand();
+        this.promptValue = '';
+
     }
 
     public onInput(event: Event): void {
@@ -65,18 +69,18 @@ export class PromptComponent implements OnInit, OnDestroy {
     //! WIP: ON HOLD
     public cycleThroughCommandHistory(event: any) {
         event.preventDefault();
-        let value = "";
+        let value = '';
 
         const commandCount = this.commandHistory.length;
         let position = commandCount - 1;
         if (commandCount) {
-            if (event.code == "ArrowUp") {
+            if (event.code == 'ArrowUp') {
 
                 position = position + this.currentCommandIndex;
 
-                console.log("commandCount: ", commandCount)
-                console.log("Index: ", this.currentCommandIndex)
-                console.log("Position (position - index): ", position)
+                console.log('commandCount: ', commandCount)
+                console.log('Index: ', this.currentCommandIndex)
+                console.log('Position (position - index): ', position)
                 if (position != 0){
                     this.currentCommandIndex--;
                 } 
@@ -86,12 +90,12 @@ export class PromptComponent implements OnInit, OnDestroy {
                 value = this.commandHistory[position].text;
             }
 
-            else if (event.code == "ArrowDown") {
+            else if (event.code == 'ArrowDown') {
 
                 position = position + this.currentCommandIndex;
-                console.log("commandCount: ", commandCount)
-                console.log("Index: ", this.currentCommandIndex)
-                console.log("Position (position - index): ", position)
+                console.log('commandCount: ', commandCount)
+                console.log('Index: ', this.currentCommandIndex)
+                console.log('Position (position - index): ', position)
 
                 if (position != 0){
                     this.currentCommandIndex++;
@@ -121,28 +125,28 @@ export class PromptComponent implements OnInit, OnDestroy {
     }
 
     private sendCommand(): void {
-        this.commandEmitter.emit(
-            {
-                text: this.promptValue,
-                valid: this.isValidCommand,
-            }
-        )
+        const command:Command =  {
+            text: this.promptValue,
+            valid: this.isValidCommand,
+        }
+        //console.log("Command emitted: ", command)
+        this.commandEmitter.emit(command)
     }
 
     private attachFocusEventHandler(): void {
-        if (!this.listener) {
-            this.listener = this.renderer.listen("document", "click", () => {
+        if (!this.listener && this.includeUserInput) {
+            this.listener = this.renderer.listen('document', 'click', () => {
                 this.input.nativeElement.focus();
             })
-            console.info("Focus event handler attached!")
+            console.info('Focus event handler attached!')
         }
 
     }
 
     private setCurrentClasses(): void {
         this.currentClasses = {
-            "valid-command": this.isValidCommand,
-            "invalid-command": !this.isValidCommand
+            'valid-command': this.isValidCommand,
+            'invalid-command': !this.isValidCommand
         }
     }
 }
