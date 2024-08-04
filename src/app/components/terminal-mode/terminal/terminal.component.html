@@ -1,6 +1,6 @@
 <div id="terminal-wrapper">
     <app-mode-selection/>
-    <section id="inner-terminal">
+    <section #innerTerminal id="inner-terminal">
         <section id="history">
 
             @for (cmd of commandHistory; track cmd) {
@@ -8,16 +8,15 @@
                 [submittedCommand]="cmd"
                 [includeUserInput]="false"
                 />
-                <div class="response">
-
+                <div class="response-wrapper">
                     @if (cmd.valid){
-                        @switch (cmd.text) {
-                            
-                            @case ('hello'){
-                                Hello!!! 👋
-                            }
-                        
-                        } 
+                        <app-response
+                        [command]="cmd"
+                        [about]="about"
+                        [projects]="projects"
+                        [resumePath]="resumePath"
+                        [links]="links"
+                        />
                     }
                     @else {
                         <div>Command not found: {{ cmd.text }}. Type 'help' to see a list of valid commands.</div>
@@ -29,7 +28,7 @@
         [validCommands]="validCommands"
         [commandHistory]="commandHistory"
         (commandEmitter)="command = $event"
-        (keydown.enter)="executeCommand()"
+        (keydown.enter)="onEnter()"
         />
     </section>
     <app-footer/>

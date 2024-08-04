@@ -9,8 +9,6 @@ export class NavHelperService {
 	private pageSource = new BehaviorSubject<string>("");
 	currentpage = this.pageSource.asObservable();
 
-	constructor() { }
-
 	changeCurrentPage(page: string) {
 		this.pageSource.next(page);
 	}

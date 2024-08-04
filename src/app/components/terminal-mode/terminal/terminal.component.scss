@@ -22,3 +22,8 @@
     width:97vw;
 
 }
+
+.response-wrapper {
+    @include text-format();
+    color: $term-response-color;
+}

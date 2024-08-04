@@ -20,11 +20,6 @@ input {
     flex-wrap: wrap;
 }
 
-.response {
-    @include text-format();
-    color: $term-response-color;
-}
-
 .prefix {
     color: $term-prefix-color;
 }

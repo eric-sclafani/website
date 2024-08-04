@@ -1,11 +1,15 @@
 import {
 	Component,
+	ElementRef,
 	OnInit,
+	ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ModeSelectionComponent } from '../../shared/mode-selection/mode-selection.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { PromptComponent } from '../prompt/prompt.component';
+import { ResponseComponent } from '../response/response.component';
 
 import { Command } from '../../../interfaces/terminal';
 import { InfoService } from '../../../services/info.service';
@@ -16,19 +20,24 @@ import { InfoService } from '../../../services/info.service';
 	imports: [
 		ModeSelectionComponent,
 		FooterComponent,
-		PromptComponent
+		PromptComponent,
+		ResponseComponent
 	],
 	templateUrl: 'terminal.component.html',
 	styleUrl: './terminal.component.scss'
 })
 export class TerminalComponent implements OnInit {
 
+	@ViewChild('innerTerminal') innerTerminal: ElementRef;
+
 	validCommands = [
 		'',
+		'welcome',
 		'help',
 		'hello',
 		'about',
 		'projects',
+		'contact',
 		'resume',
 		'github',
 		'linkedin',
@@ -47,20 +56,29 @@ export class TerminalComponent implements OnInit {
 	public about: any;
 	public projects: any;
 	public resumePath: any;
-	public contact: any;
+	public links: any;
 
 
-	constructor(private _info: InfoService) { }
+	constructor(private _info: InfoService, private _router: Router) { }
 
 	ngOnInit(): void {
 		this.about = this._info.about();
 		this.projects = this._info.projects();
 		this.resumePath = this._info.resumePath();
-		this.contact = this._info.contact();
+		this.links = this._info.links();
+
+
+
+
 	}
 
-	public executeCommand(): void {
+	public onEnter(): void {
 		this.saveCommandToHistory();
+		this.scrollToBottom();
+		
+		if (this.command.valid){
+			this.commandRouter(this.command.text);
+		}
 
 	}
 
@@ -68,31 +86,59 @@ export class TerminalComponent implements OnInit {
 		this.commandHistory.push(this.command);
 	}
 
+	private scrollToBottom():void {
+		setTimeout(
+			() => this.innerTerminal.nativeElement.scrollTop = this.innerTerminal.nativeElement.scrollHeight, 1);
+	}
+
+	private randomIdx(length:number):number{
+		return Math.round(Math.random() * length-1);
+	}
+
 	private commandRouter(commandText: string): void {
 
 		switch (commandText) {
 			case 'resume':
+				window.open(this.resumePath);
 				break;
 
 			case 'linkedin':
+				window.open(this.links.linkedin)
 				break;
 
 			case 'github':
+				window.open(this.links.github)
 				break;
 
 			case 'repo':
+				window.open(this.links.repo)
 				break;
 
+			case 'cl':
 			case 'clear':
+				this.commandHistory = [];
 				break;
 
 			case 'text':
+				this._router.navigate(['/text']);
 				break;
 
 			case 'ericspasswords':
+				window.open(this.links.rickroll)
 				break;
 
 			case 'funny':
+				const vids = [
+					'https://www.youtube.com/watch?v=Otk4HJAx_9M',
+					'https://www.youtube.com/watch?v=lod_LUp3ggc',
+					'https://www.youtube.com/watch?v=bt3_q8z0dzw&list=LL&index=21',
+					'https://www.youtube.com/watch?v=FALlhXl6CmA&list=LL&index=98',
+					'https://www.youtube.com/watch?v=Uo3cL4nrGOk',
+					'https://www.youtube.com/watch?v=Pw1UokzMQ6k&list=LL&index=130',
+
+
+
+				]
 				break;
 
 		}
@@ -114,8 +160,7 @@ export class TerminalComponent implements OnInit {
 ericspasswords rick roll redirect
 funny (redirects users to a randomly selected funny Youtube video)
 	- https://stackoverflow.com/questions/42775017/angular-2-redirect-to-an-external-url-and-open-in-a-new-tab	 
-	- https://www.youtube.com/watch?v=Otk4HJAx_9M
-	- https://www.youtube.com/watch?v=lod_LUp3ggc
+	- 
 	
 
 maybe have commands to change style of terminal
