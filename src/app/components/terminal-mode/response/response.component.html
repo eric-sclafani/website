@@ -2,16 +2,16 @@
     @switch (command.text) {
 
         @case ('welcome') {
-            <pre class="init-message">
+            <pre class="welcome">
  ______      _         _____      _        __            _ 
-|  ____|    (_)       / ____|    | |      / _|          (_)
+|  ____|    ( )       / ____|    | |      / _|          (_)
 | |__   _ __ _  ___  | (___   ___| | __ _| |_ __ _ _ __  _ 
 |  __| | '__| |/ __|  \___ \ / __| |/ _` |  _/ _` | '_ \| |
 | |____| |  | | (__   ____) | (__| | (_| | || (_| | | | | |
 |______|_|  |_|\___| |_____/ \___|_|\__,_|_| \__,_|_| |_|_|
             </pre>
             <br/>
-            Welcome to my portfolio. Type 'help' see a list of all valid commands. Cheers 🥂
+            Welcome to my portfolio. Type 'help' see a list of commands. Cheers 🥂
             
         }
         
@@ -23,7 +23,46 @@
         @case ('help'){
             <ul class="cmd-list">
                 <li class="cmd-list-item">
-                    help - see all valid commands
+                    welcome - welcome message
+                </li>
+                <li class="cmd-list-item">
+                    help - see all commands
+                </li>
+                <li class="cmd-list-item">
+                    hello - a very friendly greeting
+                </li>
+                <li class="cmd-list-item">
+                    about - 'About Me'
+                </li>
+                <li class="cmd-list-item">
+                    projects - noteworthy projects
+                </li>
+                <li class="cmd-list-item">
+                    contact - contact information
+                </li>
+                <li class="cmd-list-item">
+                    resume - opens my resume (PDF, new tab)
+                </li>
+                <li class="cmd-list-item">
+                    github - my github account (new tab)
+                </li>
+                <li class="cmd-list-item">
+                    linkedin - my linkedin account (new tab)
+                </li>
+                <li class="cmd-list-item">
+                    repo - repo for this website (new tab)
+                </li>
+                <li class="cmd-list-item">
+                    clear or cl - clears terminal history
+                </li>
+                <li class="cmd-list-item">
+                    text - switches to 'text' mode
+                </li>
+                <li class="cmd-list-item">
+                    ericspasswords - all of my juicy passwords at your disposal
+                </li>
+                <li class="cmd-list-item">
+                    funny - opens a random video I find funny (new tab)
                 </li>
             </ul>
         }
@@ -54,15 +93,15 @@
         }
 
         @case('repo'){
-
+            Repo for this website (<a class="link" href="{{ links.repo }}" target="_blank">{{ links.repo }}</a>)
         }
 
         @case('ericspasswords'){
-
+            Nice try! I'm not falling for that one again! (<a class="link" href="{{ links.rickroll }}" target="_blank">{{ links.rickroll }}</a>)
         }
 
         @case('funny'){
-
+            Enjoy your funny video (<a class="link" href="{{ funnyVideoLink }}" target="_blank">{{ funnyVideoLink }}</a>)
         }
         
     } 

@@ -15,5 +15,6 @@ export class ResponseComponent {
 	@Input() projects: any;
 	@Input() resumePath: any;
 	@Input() links: any;
-	
+
+	public funnyVideoLink = localStorage['funny'];
 }

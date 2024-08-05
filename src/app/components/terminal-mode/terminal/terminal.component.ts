@@ -49,7 +49,6 @@ export class TerminalComponent implements OnInit {
 		'funny'
 	]
 
-
 	command: Command;
 	commandHistory: Command[] = [];
 
@@ -57,7 +56,6 @@ export class TerminalComponent implements OnInit {
 	public projects: any;
 	public resumePath: any;
 	public links: any;
-
 
 	constructor(private _info: InfoService, private _router: Router) { }
 
@@ -67,16 +65,21 @@ export class TerminalComponent implements OnInit {
 		this.resumePath = this._info.resumePath();
 		this.links = this._info.links();
 
-
-
-
+		setTimeout(() => {
+			this.commandHistory.push({
+				valid: true,
+				text: 'welcome'
+			})
+		},
+			250
+		)
 	}
 
 	public onEnter(): void {
 		this.saveCommandToHistory();
 		this.scrollToBottom();
-		
-		if (this.command.valid){
+
+		if (this.command.valid) {
 			this.commandRouter(this.command.text);
 		}
 
@@ -86,16 +89,16 @@ export class TerminalComponent implements OnInit {
 		this.commandHistory.push(this.command);
 	}
 
-	private scrollToBottom():void {
+	private scrollToBottom(): void {
 		setTimeout(
 			() => this.innerTerminal.nativeElement.scrollTop = this.innerTerminal.nativeElement.scrollHeight, 1);
 	}
 
-	private randomIdx(length:number):number{
-		return Math.round(Math.random() * length-1);
+	private randomIdx(length: number): number {
+		return Math.round(Math.random() * length);
 	}
 
-	private commandRouter(commandText: string): void {
+	private commandRouter(commandText: string) {
 
 		switch (commandText) {
 			case 'resume':
@@ -103,15 +106,15 @@ export class TerminalComponent implements OnInit {
 				break;
 
 			case 'linkedin':
-				window.open(this.links.linkedin)
+				window.open(this.links.linkedin);
 				break;
 
 			case 'github':
-				window.open(this.links.github)
+				window.open(this.links.github);
 				break;
 
 			case 'repo':
-				window.open(this.links.repo)
+				window.open(this.links.repo);
 				break;
 
 			case 'cl':
@@ -124,25 +127,33 @@ export class TerminalComponent implements OnInit {
 				break;
 
 			case 'ericspasswords':
-				window.open(this.links.rickroll)
+				window.open(this.links.rickroll);
 				break;
 
 			case 'funny':
-				const vids = [
-					'https://www.youtube.com/watch?v=Otk4HJAx_9M',
-					'https://www.youtube.com/watch?v=lod_LUp3ggc',
-					'https://www.youtube.com/watch?v=bt3_q8z0dzw&list=LL&index=21',
-					'https://www.youtube.com/watch?v=FALlhXl6CmA&list=LL&index=98',
-					'https://www.youtube.com/watch?v=Uo3cL4nrGOk',
-					'https://www.youtube.com/watch?v=Pw1UokzMQ6k&list=LL&index=130',
-
-
-
-				]
+				const link = this.getFunnyVideo();
+				localStorage['funny'] = link;
+				window.open(link);
 				break;
 
 		}
 	}
+
+	private getFunnyVideo():string{
+		const vids = [
+			'https://www.youtube.com/watch?v=Otk4HJAx_9M',
+			'https://www.youtube.com/watch?v=lod_LUp3ggc',
+			'https://www.youtube.com/watch?v=bt3_q8z0dzw&list=LL&index=21',
+			'https://www.youtube.com/watch?v=Uo3cL4nrGOk',
+			'https://www.youtube.com/watch?v=Pw1UokzMQ6k&list=LL&index=130',
+			'https://www.youtube.com/watch?v=aXOChLn5ZdQ',
+		]
+		const idx = this.randomIdx(vids.length - 1);
+		const link = vids[idx];
+		return link;
+	}
+
+
 
 
 }
