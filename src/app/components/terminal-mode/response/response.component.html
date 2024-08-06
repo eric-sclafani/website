@@ -31,17 +31,21 @@
 
         @case ('help'){
             <ul class="cmd-list">
-                
                 @for ( cmd of helpCommands; track cmd) {
-                    <li class="cmd-list-item">
-                        {{ cmd['title'] }} - {{ cmd['text'] }}
+                    <li>
+                        ♢<span class="help-title">{{ cmd['title'] }}</span>
+                        -
+                        <span class="help-text">{{ cmd['text'] }}</span>
                     </li>
                 }
             </ul>
         }
 
         @case('about'){
-            
+            <div class="about">
+                <p>{{ about.general.p1 }}</p>
+                <p>{{ about.general.p2 }}</p>
+            </div>
  
         }
 

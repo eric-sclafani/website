@@ -8,13 +8,13 @@ export class InfoService {
     public about(): any {
 
         const general = {
-            p1: 'this is paragraph one about me',
-            p2: 'this is paragraph two about me'
+            p1: 'Computational linguistics graduate student turned fullstack .NET Developer.',
+            p2: ' Current employed at the Kings County District Attorney\'s office.'
         }
 
         const research = {
-            p1: 'Graduated from Stony Brook University with a master’s degree in computational linguistics. My research focused on using advanced stylometric feature extraction to embed language data into high-dimensional vectors.',
-            p2: 'These vectors were then used for authorship attribution, the task of automatically identifying the author of a document. This work was done with Dr. Owen Rambow on the IARPA HIATUS grant for which I authored two Python software for performing quantitative analysis over English grammar: Gram2Vec and Sentence Regex Matcher (SRM).',
+            p1: '',
+            p2: '',
         }
 
         const publication = {

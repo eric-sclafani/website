@@ -1,15 +1,31 @@
 .cmd-list {
     list-style: none;
     padding: 0;
-}
 
-.cmd-list-item::before {
-    content: '♢';
+    li {
+        display:flex;
+        flex-wrap:wrap;
+        gap:6px;
+
+        @media screen and (max-width:550px){
+            margin-bottom:5px;
+        }
+
+        .help-title {
+            font-weight:700
+        }
+
+        .help-text {
+            text-decoration: underline;
+        }
+
+    }
+    
 }
 
 .welcome {
 
-    font-size:0.85rem;
+    font-size:0.75rem;
 
     @media screen and (max-width:640px) {
         font-size: 0.5rem;
@@ -18,10 +34,12 @@
     @media screen and (max-width:355px) {
         font-size: 0.25rem;
     }
-
-   
 }
 
 .link {
     color:#fff
+}
+
+.about p {
+    margin-top:20px
 }

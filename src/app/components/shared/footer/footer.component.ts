@@ -13,3 +13,5 @@ import { Component } from '@angular/core';
 export class FooterComponent {
   currentYear = new Date().getFullYear() 
 }
+
+// TODO: work on making styling responsive (cuts off on smaller screen sizes)
