@@ -1,3 +1,14 @@
+<ng-template #linkTemplate let-link="link">
+    @if (link == resumePath){
+        <a class="link" [href]="link" target="_blank">Link to resume (PDF)</a> 
+    }
+    @else {
+        <a class="link" [href]="link" target="_blank">{{ link }}</a> 
+    }
+</ng-template>
+
+
+
 <div class="response">
     @switch (command.text) {
 
@@ -12,58 +23,20 @@
             </pre>
             <br/>
             Welcome to my portfolio. Type 'help' see a list of commands. Cheers 🥂
-            
         }
-        
-        
+         
         @case ('hello'){
             <div class="hello">Hello! 👋 Welcome to my crib 😎</div>
         }
 
         @case ('help'){
             <ul class="cmd-list">
-                <li class="cmd-list-item">
-                    welcome - welcome message
-                </li>
-                <li class="cmd-list-item">
-                    help - see all commands
-                </li>
-                <li class="cmd-list-item">
-                    hello - a very friendly greeting
-                </li>
-                <li class="cmd-list-item">
-                    about - 'About Me'
-                </li>
-                <li class="cmd-list-item">
-                    projects - noteworthy projects
-                </li>
-                <li class="cmd-list-item">
-                    contact - contact information
-                </li>
-                <li class="cmd-list-item">
-                    resume - opens my resume (PDF, new tab)
-                </li>
-                <li class="cmd-list-item">
-                    github - my github account (new tab)
-                </li>
-                <li class="cmd-list-item">
-                    linkedin - my linkedin account (new tab)
-                </li>
-                <li class="cmd-list-item">
-                    repo - repo for this website (new tab)
-                </li>
-                <li class="cmd-list-item">
-                    clear or cl - clears terminal history
-                </li>
-                <li class="cmd-list-item">
-                    text - switches to 'text' mode
-                </li>
-                <li class="cmd-list-item">
-                    ericspasswords - all of my juicy passwords at your disposal
-                </li>
-                <li class="cmd-list-item">
-                    funny - opens a random video I find funny (new tab)
-                </li>
+                
+                @for ( cmd of helpCommands; track cmd) {
+                    <li class="cmd-list-item">
+                        {{ cmd['title'] }} - {{ cmd['text'] }}
+                    </li>
+                }
             </ul>
         }
 
@@ -81,28 +54,27 @@
         }
 
         @case('resume'){
-
+            Resume (<ng-container *ngTemplateOutlet="linkTemplate; context: {link:resumePath}"></ng-container>) 
         }
 
         @case('github'){
-
+            Github (<ng-container *ngTemplateOutlet="linkTemplate; context: {link:links.github}"></ng-container>)
         }
 
         @case('linkedin'){
-
+            Linkedin (<ng-container *ngTemplateOutlet="linkTemplate; context: {link:links.linkedin}"></ng-container>)
         }
 
         @case('repo'){
-            Repo for this website (<a class="link" href="{{ links.repo }}" target="_blank">{{ links.repo }}</a>)
+            Repo for this website (<ng-container *ngTemplateOutlet="linkTemplate; context: {link:links.repo}"></ng-container>)
         }
 
         @case('ericspasswords'){
-            Nice try! I'm not falling for that one again! (<a class="link" href="{{ links.rickroll }}" target="_blank">{{ links.rickroll }}</a>)
+            Nice try! I'm not falling for that one again! (<ng-container *ngTemplateOutlet="linkTemplate; context: {link:links.rickroll}"></ng-container>)
         }
 
         @case('funny'){
-            Enjoy your funny video (<a class="link" href="{{ funnyVideoLink }}" target="_blank">{{ funnyVideoLink }}</a>)
+            Enjoy your funny video (<ng-container *ngTemplateOutlet="linkTemplate; context: {link:funnyVideoLink}"></ng-container>)
         }
-        
     } 
 </div>
