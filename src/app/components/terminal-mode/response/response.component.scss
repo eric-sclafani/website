@@ -14,13 +14,7 @@
         .help-title {
             font-weight:700
         }
-
-        .help-text {
-            text-decoration: underline;
-        }
-
     }
-    
 }
 
 .welcome {
@@ -37,9 +31,17 @@
 }
 
 .link {
-    color:#fff
+    color:lightblue
 }
 
 .about p {
-    margin-top:20px
+    margin-top:20px;
+    width:700px;
+
+    @media screen and (max-width: 750px){
+        width:400px;
+    }
+    @media screen and (max-width: 440px){
+        width:300px;
+    }    
 }

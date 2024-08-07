@@ -43,8 +43,15 @@
 
         @case('about'){
             <div class="about">
-                <p>{{ about.general.p1 }}</p>
-                <p>{{ about.general.p2 }}</p>
+                <p><a class="link" href="https://plato.stanford.edu/entries/computational-linguistics/" target="_blank">Computational linguistics</a> {{ about.general.p1 }}</p>
+                <p> {{ about.research.p1 }} </p>
+                <p> {{ about.research.pub.text }} <a class="link" target="_blank" href="{{about.research.pub.link}}">here</a></p> 
+                
+                
+                @for (skill of about.skills.frontend; track skill){
+                    
+                }
+
             </div>
  
         }

@@ -31,10 +31,8 @@ export class ResponseComponent {
 		{ title: 'linkedin', text: 'my linkedin (new tab)' },
 		{ title: 'repo', text: 'repo for this website (new tab)' },
 		{ title: 'funny', text: 'opens a random video I find funny (new tab)' },
-		{ title: 'clear or cl', text: 'clears terminal history' },
+		{ title: 'clear,cl', text: 'clears terminal history' },
 		{ title: 'text', text: 'switches to \'text\' mode' },
 		{ title: 'ericspasswords', text: 'all of my juicy passwords at your disposal' },
 	]
-
-	// TODO: Idea - instead of text displayed next to title, display only title and make text display on hover?
 }

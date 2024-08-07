@@ -8,38 +8,47 @@ export class InfoService {
     public about(): any {
 
         const general = {
-            p1: 'Computational linguistics graduate student turned fullstack .NET Developer.',
-            p2: ' Current employed at the Kings County District Attorney\'s office.'
+            p1: 'graduate turned fullstack .NET Developer working at the Kings County District Attorney\'s office (KCDA). Here I develop RESTful applications for legal staff to perform CRUD operations over complex legal data.',
         }
 
         const research = {
-            p1: '',
-            p2: '',
+            p1: 'My graduate research focused on using advanced stylometric feature extraction to embed language data into high-dimensional vectors. These vectors were then used for authorship attribution, the task of automatically identifying the author of a document. ',
+            pub: {
+                text: 'Check out the arXiv paper',
+                link: 'https://arxiv.org/abs/2406.12131'
+            }
         }
 
-        const publication = {
-            title: 'Gram2Vec',
-            link: 'https://arxiv.org/abs/2406.12131'
+        const skills = { 
+            frontend : [
+                'Typescript',
+                'Javascript',
+                'Angular',
+                'Vue',
+                'jQuery',
+                'Bootstrap'
+            ],
+            backend : [
+                'SQL Server',
+                'ASP.NET',
+                'T-SQL',
+                'C#',
+                'Python'
+            ]
         }
-
-        const skills = [
-            'skill 1',
-            'skill 2',
-            'skill 3'
-        ]
+        
 
         const hobbies = [
             'Coding',
             'Reading',
             'Watching shows and movies',
             'Going for long walks',
-            'whatever else....']
+            ]
 
 
         return {
             general: general,
             research: research,
-            publication: publication,
             skills: skills,
             hobbies: hobbies
         }

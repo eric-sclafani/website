@@ -14,6 +14,11 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 		FooterComponent
 	],
 	templateUrl: './home.component.html',
+	styles: `div {
+		display:flex;
+		justify-content:center;
+		font-size:4rem;
+	}`
 })
 export class HomeComponent {
 
