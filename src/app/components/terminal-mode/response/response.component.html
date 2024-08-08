@@ -7,10 +7,21 @@
     }
 </ng-template>
 
+<ng-template #iterate let-items="items">
+    @for (item of items; track item; let i = $index){
+        @if (i+1 == items.length){
+            {{ item }}
+        }
+        @else {
+            {{ item }},
+        } 
+    }
+</ng-template>
+
 
 
 <div class="response">
-    @switch (command.text) {
+    @switch (command.text.toLowerCase()) {
 
         @case ('welcome') {
             <pre class="welcome">
@@ -45,23 +56,37 @@
             <div class="about">
                 <p><a class="link" href="https://plato.stanford.edu/entries/computational-linguistics/" target="_blank">Computational linguistics</a> {{ about.general.p1 }}</p>
                 <p> {{ about.research.p1 }} </p>
-                <p> {{ about.research.pub.text }} <a class="link" target="_blank" href="{{about.research.pub.link}}">here</a></p> 
-                
-                
-                @for (skill of about.skills.frontend; track skill){
-                    
-                }
-
+                <p>
+                    <strong>Frontend skills</strong>:
+                    <ng-container *ngTemplateOutlet="iterate; context: { items: about.skills.frontend }"></ng-container>
+                </p>
+                <p>
+                    <strong>Backend skills</strong>: 
+                    <ng-container *ngTemplateOutlet="iterate; context: { items: about.skills.backend }"></ng-container>
+                </p>
+                <p>
+                    <strong>Hobbies</strong>: 
+                    <ng-container *ngTemplateOutlet="iterate; context: { items: about.hobbies}"></ng-container>
+                </p>
             </div>
- 
         }
 
         @case('projects'){
-
+            <div class="projects">
+                @for(proj of projects; track proj){
+                    <div class="proj-wrapper">
+                        <strong>{{ proj.title }}</strong>
+                        <div>{{ proj.desc }}</div>
+                        <ng-container *ngTemplateOutlet="linkTemplate; context: {link:proj.link}"></ng-container>
+                    </div>
+                }
+            </div>
         }
 
         @case('contact'){
-
+            <div class="contact">
+                <p>Shoot me an email: {{ links.email }}</p>
+            </div>
         }
 
         @case('resume'){

@@ -41,8 +41,8 @@ export class InfoService {
         const hobbies = [
             'Coding',
             'Reading',
-            'Watching shows and movies',
-            'Going for long walks',
+            'Watching anime/shows/movies',
+            'long walks',
             ]
 
 
@@ -57,12 +57,15 @@ export class InfoService {
     public projects(): any {
         return [
             {
-                link: 'link to project 1...',
-                desc: 'This project solves all problems and therefore...'
+                title:'Gram2Vec',
+                desc: 'Grammatical style embedding algorithm that embeds documents into a higher dimensional space by extracting the normalized relative frequencies of stylistic features present in the text',
+                link: 'https://github.com/eric-sclafani/gram2vec'
+                
             },
             {
-                link: 'link to project 2...',
-                desc: 'This project raised more than $2billion in series A funding...'
+                title:'Syntax Regex Matcher (SRM)',
+                desc: 'SRM is a package for applying regular expressions to spaCy-generated parse trees to look for syntactic constructions in English sentences',
+                link: 'https://github.com/eric-sclafani/syntax-regex-matcher'
             }
         ]
 
