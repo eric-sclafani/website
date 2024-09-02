@@ -147,6 +147,7 @@ export class TerminalComponent implements OnInit {
 			'https://www.youtube.com/watch?v=Uo3cL4nrGOk',
 			'https://www.youtube.com/watch?v=Pw1UokzMQ6k&list=LL&index=130',
 			'https://www.youtube.com/watch?v=aXOChLn5ZdQ',
+			'https://www.youtube.com/watch?v=LTDs7U8u5wU'
 		]
 		const idx = this.randomIdx(vids.length - 1);
 		const link = vids[idx];
@@ -159,8 +160,6 @@ export class TerminalComponent implements OnInit {
 }
 
 
-//! Important: for resume, alongside attempting to open a new tab, also display the pdf link in case new tab is blocked
-//! (do this for any external link redirect commands)
 
 // * In text mode:
 //* About - use this maybe https://github.com/ryo-ma/github-profile-trophy 
@@ -168,12 +167,6 @@ export class TerminalComponent implements OnInit {
 
 
 /* TODO:
-ericspasswords rick roll redirect
-funny (redirects users to a randomly selected funny Youtube video)
-	- https://stackoverflow.com/questions/42775017/angular-2-redirect-to-an-external-url-and-open-in-a-new-tab	 
-	- 
-	
-
 maybe have commands to change style of terminal
 
 

@@ -13,11 +13,16 @@ import { RouterModule } from '@angular/router';
           Terminal mode
       </a>
   
-      <a class="link" routerLink="/text" routerLinkActive="active">
+      <a class="link" routerLink="/text" routerLinkActive="active" (click)="showAlert()">
           Text mode
       </a>
   </nav>
 `,
   styleUrl: './mode-selection.component.scss'
 })
-export class ModeSelectionComponent { }
+export class ModeSelectionComponent {
+
+  showAlert(){
+    alert("Text mode not yet implemented. Check back later :)")
+  }
+ }
