@@ -8,7 +8,7 @@ export class InfoService {
     public about(): any {
 
         const general = {
-            p1: 'graduate turned fullstack .NET Developer working at the Kings County District Attorney\'s office (KCDA). Here I develop RESTful applications for legal staff to perform CRUD operations over complex legal data.',
+            p1: 'graduate turned fullstack .NET Developer working at the Kings County District Attorney\'s office (KCDA). Here I develop RESTful applications for legal staff to perform CRUD operations on complex legal data.',
         }
 
         const research = {
@@ -41,6 +41,7 @@ export class InfoService {
         const hobbies = [
             'Coding',
             'Reading',
+            'Bird watching',
             'Watching anime/shows/movies',
             'long walks',
             ]
