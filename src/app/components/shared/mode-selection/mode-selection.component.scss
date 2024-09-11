@@ -1,4 +1,11 @@
-nav {
+#expanded-nav-wrapper {
+    display:flex;
+    flex-direction:column;
+    align-items:center
+}
+
+
+#expanded-nav{
     display:flex;
     gap:10px;
     justify-content: center;

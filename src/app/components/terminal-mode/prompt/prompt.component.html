@@ -11,8 +11,6 @@
         [ngClass]="currentClasses"
         (input)="onInput($event)"
         (keydown.enter)="refreshPrompt()"
-        (keydown.ArrowUp)="cycleThroughCommandHistory($event)"
-        (keydown.ArrowDown)="cycleThroughCommandHistory($event)"
         #input
         type="text"
         autocomplete="off"

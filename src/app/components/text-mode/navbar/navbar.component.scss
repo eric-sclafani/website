@@ -6,8 +6,8 @@ ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap:10px
+    display:grid;
+    grid-template-columns:5fr 5fr;
+    grid-gap:5vw
+
 }

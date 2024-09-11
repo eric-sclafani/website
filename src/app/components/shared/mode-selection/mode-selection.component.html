@@ -1,0 +1,21 @@
+
+    @if (isExpanded){
+        <div id="expanded-nav-wrapper">
+            <nav id="expanded-nav">
+                <a class="link" routerLink="/text" routerLinkActive="active">
+                    Text mode
+                </a>
+            
+                <a class="link" routerLink="/terminal" routerLinkActive="active">
+                    Terminal mode
+                </a>
+            </nav>
+    
+            <button (click)="toggleNavBar()" type="button">{{ expandedSymbol }}</button>
+        </div>
+
+    }
+    @else {
+        <button (click)="toggleNavBar()" type="button">{{ hiddenSymbol }}</button>
+    }
+    

@@ -1,19 +1,16 @@
 <nav>
     <ul>
         <li>
-            <a class="link" routerLink="/text/" routerLinkActive="active"> Back to Home</a>
+            <a class="link" (click)="emitPageSignal($event)" routerLink="/text/about" routerLinkActive="active"> Who am I</a>
         </li>
         <li>
-            <a class="link" routerLink="/text/about" routerLinkActive="active"> Who am I 🤔</a>
+            <a class="link" (click)="emitPageSignal($event)" routerLink="/text/projects" routerLinkActive="active" >Projects</a>
         </li>
         <li>
-            <a class="link" routerLink="/text/projects" routerLinkActive="active" >Projects 🛠️</a>
+            <a class="link" (click)="emitPageSignal($event)" routerLink="/text/contact" routerLinkActive="active" >Contact</a>
         </li>
         <li>
-            <a class="link" routerLink="/text/contact" routerLinkActive="active" >Contact</a>
-        </li>
-        <li>
-            <a class="link">My Resume</a>
+            <a class="link">My Resume (PDF)</a>
         </li>
         
     </ul>

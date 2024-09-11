@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RouterLinkActive, RouterModule } from '@angular/router';
 import { NavHelperService } from '../../../services/nav-helper.service';
 
@@ -17,6 +17,7 @@ import { NavHelperService } from '../../../services/nav-helper.service';
 export class NavbarComponent implements OnInit{
 
 	public currentPage:string;
+	@Output() pageSignal = new EventEmitter<string>(); 
 
 	constructor(private navHelper: NavHelperService) { }
 
@@ -24,5 +25,8 @@ export class NavbarComponent implements OnInit{
 		this.navHelper.currentpage.subscribe(page => this.currentPage = page);
 	}
 	
+	emitPageSignal(event:any):void {
+		this.pageSignal.emit(event.target.innerHTML)
+	}
 
 }

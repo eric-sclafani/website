@@ -1,5 +1,19 @@
-<app-mode-selection/>
-<app-navbar/>
-<div>Text mode is currently WIP</div>
-<router-outlet/>
-<app-footer/>
+<div id="home-wrapper">
+    <app-mode-selection/>
+    <a 
+        class="link"
+        routerLink="/text/" 
+        routerLinkActive="active"
+        (click)="resetCurrentPage()"
+        > 
+        Back to Home
+    </a>
+    @if(currentPage == 'Home'){
+        <app-navbar (pageSignal)="setCurrentPage($event)"/>
+    }
+    
+    <router-outlet/>
+    <app-footer/>
+</div>
+
+

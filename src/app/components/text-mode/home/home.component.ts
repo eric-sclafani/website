@@ -1,25 +1,34 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { RouterOutlet } from '@angular/router';
 import { ModeSelectionComponent } from '../../shared/mode-selection/mode-selection.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
+
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
 	selector: 'app-home',
 	standalone: true,
 	imports: [
-		NavbarComponent,
 		RouterOutlet,
+		RouterModule,
+		NavbarComponent,
 		ModeSelectionComponent,
-		FooterComponent
+		FooterComponent,
+		
 	],
 	templateUrl: './home.component.html',
-	styles: `div {
-		display:flex;
-		justify-content:center;
-		font-size:4rem;
-	}`
+	styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+
+	public currentPage = 'Home';
+
+	setCurrentPage(page:string):void{
+		this.currentPage = page;
+	}
+
+	resetCurrentPage():void{
+		this.currentPage = 'Home';
+	}
 
 }

@@ -7,18 +7,17 @@ import { ContactComponent } from "./components/text-mode/pages/contact/contact.c
 
 export const routes: Routes = [
 
-
-    // {
-    //     path: "text",
-    //     component: HomeComponent,
-    //     children: [
-    //         { path: "about", component: AboutComponent },
-    //         { path: "projects", component: ProjectsComponent },
-    //         { path: "contact", component: ContactComponent}
-    //     ]
-    // },
+    {
+        path: "text",
+        component: HomeComponent,
+        children: [
+            { path: "about", component: AboutComponent },
+            { path: "projects", component: ProjectsComponent },
+            { path: "contact", component: ContactComponent}
+        ]
+    },
 
     { path: "terminal", component: TerminalComponent },
-    { path: "", redirectTo: "/terminal", pathMatch: "full" },
-    { path: "**", redirectTo: "/terminal", pathMatch: "full" }
+    { path: "", redirectTo: "/text", pathMatch: "full" },
+    { path: "**", redirectTo: "/text", pathMatch: "full" }
 ];
