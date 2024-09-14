@@ -1,19 +1,19 @@
 <div id="home-wrapper">
+
     <app-mode-selection/>
-    <a 
-        class="link"
-        routerLink="/text/" 
-        routerLinkActive="active"
-        (click)="resetCurrentPage()"
-        > 
-        Back to Home
+
+    <a routerLink="/text/" routerLinkActive="active"> 
+        <button class="home-button"> Home </button>
     </a>
-    @if(currentPage == 'Home'){
-        <app-navbar (pageSignal)="setCurrentPage($event)"/>
+
+    @if(router.url == '/text'){
+        <app-navbar/>
     }
     
-    <router-outlet/>
-    <app-footer/>
+    <router-outlet/> 
+    
+    <div id="footer"><app-footer/></div>   
+    
 </div>
 
 

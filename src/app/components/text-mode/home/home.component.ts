@@ -2,8 +2,8 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { ModeSelectionComponent } from '../../shared/mode-selection/mode-selection.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterModule, RouterOutlet, Router} from '@angular/router';
 
 @Component({
 	selector: 'app-home',
@@ -21,14 +21,11 @@ import { RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 })
 export class HomeComponent {
 
-	public currentPage = 'Home';
+	public router: Router;
 
-	setCurrentPage(page:string):void{
-		this.currentPage = page;
+	constructor(router: Router ) {
+		this.router = router;
 	}
 
-	resetCurrentPage():void{
-		this.currentPage = 'Home';
-	}
 
 }

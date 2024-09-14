@@ -1,13 +1,27 @@
-nav {
-    background-color:lightblue;
-    padding: 1em;
+#nav-wrapper {
+    display:flex;
+    align-items: center;
 }
+
 ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    display:grid;
-    grid-template-columns:5fr 5fr;
-    grid-gap:5vw
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50vh 50vw;
+}
+
+.nav-button {
+    cursor: pointer;
+    height:75px;
+    width:100px;
 
 }
+
+
+#eric-photo {
+    height: 60vh
+}
+

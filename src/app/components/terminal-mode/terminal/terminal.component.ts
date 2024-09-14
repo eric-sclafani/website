@@ -149,13 +149,9 @@ export class TerminalComponent implements OnInit {
 			'https://www.youtube.com/watch?v=Q-KciIbk_oA',
 			'https://www.youtube.com/watch?v=m_CrIu01SnM',
 			'https://www.youtube.com/watch?v=7zonR6nYMWg',
-			'https://www.youtube.com/watch?v=92bjYGGDVhQ&list=LL&index=242'
+			'https://www.youtube.com/watch?v=92bjYGGDVhQ&list=LL&index=242',
+			'https://www.youtube.com/watch?v=VeFMdVIFsgs'
 			
-
-
-
-
-
 		]
 		const idx = this.randomIdx(vids.length - 1);
 		const link = vids[idx];

@@ -1,17 +1,43 @@
-<nav>
-    <ul>
-        <li>
-            <a class="link" (click)="emitPageSignal($event)" routerLink="/text/about" routerLinkActive="active"> Who am I</a>
-        </li>
-        <li>
-            <a class="link" (click)="emitPageSignal($event)" routerLink="/text/projects" routerLinkActive="active" >Projects</a>
-        </li>
-        <li>
-            <a class="link" (click)="emitPageSignal($event)" routerLink="/text/contact" routerLinkActive="active" >Contact</a>
-        </li>
-        <li>
-            <a class="link">My Resume (PDF)</a>
-        </li>
-        
-    </ul>
-</nav>  
+<ng-template #navButton let-text="text" let-link="link">
+
+    @if (text != 'Resume (PDF)'){
+        <button class="nav-button" [routerLink]="link"> {{ text }} </button>
+    }
+    @else {
+        <a style="text-decoration: none; color:black;" href="assets/resume/resume.pdf" target="_blank">
+            <button class="nav-button">
+                {{ text }}
+            </button> 
+        </a>
+    }
+</ng-template>
+
+
+<div id="nav-wrapper">
+    <nav>
+        <ul>
+            <li>
+                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Who am I', link:'/text/about'}"></ng-container>
+            </li>
+            <li>
+                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Projects', link:'/text/projects'}"></ng-container>
+            </li>
+        </ul>
+    </nav>
+    
+    <img id="eric-photo" src="/assets/img/eric_pixelated.png"/>
+    
+    <nav>
+        <ul>
+            <li>
+                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Contact', link:'/text/contact'}"></ng-container>
+            </li>
+            <li>
+                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Resume (PDF)'}"></ng-container>
+            </li>
+            
+        </ul>
+    </nav>  
+</div>
+
+

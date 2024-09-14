@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 import { RouterLinkActive, RouterModule } from '@angular/router';
 import { NavHelperService } from '../../../services/nav-helper.service';
 
@@ -10,6 +11,7 @@ import { NavHelperService } from '../../../services/nav-helper.service';
 	imports: [
 		RouterModule,
 		RouterLinkActive,
+		NgTemplateOutlet
 	],
 	templateUrl: './navbar.component.html',
 	styleUrl: './navbar.component.scss'
@@ -17,16 +19,11 @@ import { NavHelperService } from '../../../services/nav-helper.service';
 export class NavbarComponent implements OnInit{
 
 	public currentPage:string;
-	@Output() pageSignal = new EventEmitter<string>(); 
 
 	constructor(private navHelper: NavHelperService) { }
 
 	ngOnInit(): void {
 		this.navHelper.currentpage.subscribe(page => this.currentPage = page);
-	}
-	
-	emitPageSignal(event:any):void {
-		this.pageSignal.emit(event.target.innerHTML)
 	}
 
 }

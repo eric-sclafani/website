@@ -10,13 +10,4 @@ import { RouterModule } from '@angular/router';
 	templateUrl: './mode-selection.component.html',
 	styleUrl: './mode-selection.component.scss'
 })
-export class ModeSelectionComponent {
-
-	public isExpanded = false;
-	public expandedSymbol = '↑';
-	public hiddenSymbol = '↓';
-
-	toggleNavBar(){
-		this.isExpanded = !this.isExpanded
-	}
-}
+export class ModeSelectionComponent { }
