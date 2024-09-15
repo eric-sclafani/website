@@ -1,11 +1,15 @@
+
 <div id="home-wrapper">
 
     <app-mode-selection/>
 
-    <a routerLink="/text/" routerLinkActive="active"> 
-        <button class="home-button"> Home </button>
-    </a>
-
+    <button 
+        class="nav-button"  
+        routerLink="/text/" 
+        routerLinkActive="active"> 
+        Home
+    </button>
+ 
     @if(router.url == '/text'){
         <app-navbar/>
     }

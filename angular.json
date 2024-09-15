@@ -31,7 +31,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/app/components/terminal-mode/terminal-mode.scss"
+              "src/app/components/terminal-mode/terminal-mode.scss",
+              "src/app/components/text-mode/text-mode.scss"
               
             ],
             "scripts": []
