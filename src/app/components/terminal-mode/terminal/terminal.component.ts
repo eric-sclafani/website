@@ -82,7 +82,6 @@ export class TerminalComponent implements OnInit {
 		if (this.command.valid) {
 			this.commandRouter(this.command.text);
 		}
-
 	}
 
 	private saveCommandToHistory(): void {
@@ -165,9 +164,6 @@ export class TerminalComponent implements OnInit {
 
 
 
-// * In text mode:
-//* About - use this maybe https://github.com/ryo-ma/github-profile-trophy 
-//* Projects - use same or similar code to display repos like here https://eric-sclafani.github.io/repositories/ 
 
 
 /* TODO:
