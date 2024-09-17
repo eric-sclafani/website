@@ -14,6 +14,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Credits:
 
-- Text mode background image: Designed by pikisuperstar at [Freepik](https://www.freepik.com/free-vector/pixel-art-rural-landscape-background_49685498.htm#fromView=search&page=1&position=8&uuid=ca89e5c5-64a2-427f-9afe-124140190e8e)
+- Text mode background image: AI generated using [DeepAI](https://deepai.org/machine-learning-model/text2img) with the following prompt:
+    - > A large, green pixel art landscape. In the middle, a large river is flowing. On both sides of the river, there stands a large, green tree. The sun is setting behind them, reflecting light off the water.
 
 - My face converted into pixels by [Pixelicious](https://www.pixelicious.xyz/)

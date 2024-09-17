@@ -1,11 +1,24 @@
+@import '../../../../styles.scss';
+
+
 #nav-wrapper {
     display:flex;
     flex-direction:column;
     align-items:center
 }
 
+.pixel-font {
+    @include pixel-font();
+    font-size: 1.3rem;
+}
 
-nav{
+.hack-font {
+    font-family: "Hack", monospace;
+    font-size: 1.1rem;
+}
+
+
+nav {
     display:flex;
     gap:10px;
     justify-content: center;
@@ -23,3 +36,4 @@ nav{
     }
 
 }
+
