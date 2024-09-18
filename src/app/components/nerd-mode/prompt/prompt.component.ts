@@ -10,7 +10,7 @@ import {
     EventEmitter,
 } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { Command } from '../../../interfaces/terminal';
+import { Command } from '../../../interfaces/nerd';
 
 @Component({
     selector: 'app-prompt',

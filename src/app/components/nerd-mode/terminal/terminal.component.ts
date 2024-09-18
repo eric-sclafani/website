@@ -11,7 +11,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 import { PromptComponent } from '../prompt/prompt.component';
 import { ResponseComponent } from '../response/response.component';
 
-import { Command } from '../../../interfaces/terminal';
+import { Command } from '../../../interfaces/nerd';
 import { InfoService } from '../../../services/info.service';
 
 @Component({
@@ -44,7 +44,7 @@ export class TerminalComponent implements OnInit {
 		'repo',
 		'clear',
 		'cl',
-		'text',
+		'normal',
 		'ericspasswords',
 		'funny'
 	]
@@ -121,8 +121,8 @@ export class TerminalComponent implements OnInit {
 				this.commandHistory = [];
 				break;
 
-			case 'text':
-				this._router.navigate(['/text']);
+			case 'normal':
+				this._router.navigate(['/normal']);
 				break;
 
 			case 'ericspasswords':

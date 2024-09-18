@@ -1,11 +1,11 @@
 <ng-template #navButton let-text="text" let-link="link">
 
-    @if (text != 'Resume (PDF)'){
+    @if (text != 'Resume'){
         <button class="nav-button" [routerLink]="link"> {{ text }} </button>
     }
     @else {
         <a style="text-decoration: none; color:black;" href="assets/resume/resume.pdf" target="_blank">
-            <button class="nav-button">
+            <button class="nav-button" disabled>
                 {{ text }}
             </button> 
         </a>
@@ -17,10 +17,10 @@
     <nav>
         <ul>
             <li>
-                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Who am I?', link:'/text/about'}"></ng-container>
+                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Who am I?', link:'/normal/about'}"></ng-container>
             </li>
             <li>
-                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Projects', link:'/text/projects'}"></ng-container>
+                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Projects', link:'/normal/projects'}"></ng-container>
             </li>
         </ul>
     </nav>
@@ -30,10 +30,10 @@
     <nav>
         <ul>
             <li>
-                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Contact', link:'/text/contact'}"></ng-container>
+                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Contact', link:'/normal/contact'}"></ng-container>
             </li>
             <li>
-                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Resume (PDF)'}"></ng-container>
+                <ng-container *ngTemplateOutlet="navButton; context: {text: 'Resume'}"></ng-container>
             </li>
             
         </ul>

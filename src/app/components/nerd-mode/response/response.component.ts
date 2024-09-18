@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { Command } from '../../../interfaces/terminal';
+import { Command } from '../../../interfaces/nerd';
 
 @Component({
 	selector: 'app-response',
@@ -32,7 +32,7 @@ export class ResponseComponent {
 		{ title: 'repo', text: 'repo for this website (new tab)' },
 		{ title: 'funny', text: 'opens a random video I find funny (new tab)' },
 		{ title: 'clear,cl', text: 'clears terminal history' },
-		{ title: 'text', text: 'switches to \'text\' mode' },
+		{ title: 'normal', text: 'switches to \'normal\' mode' },
 		{ title: 'ericspasswords', text: 'all of my juicy passwords at your disposal' },
 	]
 }

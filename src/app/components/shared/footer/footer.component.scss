@@ -1,15 +1,22 @@
+@import '../../../../styles.scss';
+
+.pixel-font {
+    @include pixel-font();
+    font-size: 1.3rem;
+}
+
+.hack-font {
+    font-family: "Hack", monospace;
+    font-size: 1.1rem;
+}
+
+
 footer {
     display:flex;
     gap:10px;
-    background-color: rgb(225, 230, 237, 0.5);
+    background-color: rgb(225, 230, 237, 0.8);
     align-items: center;
     border-radius:15px;
     padding: 0 10px 0 10px;
     
-
-    #bar {
-        font-size: 20px;
-        font-weight:700; 
-    }
-
 }

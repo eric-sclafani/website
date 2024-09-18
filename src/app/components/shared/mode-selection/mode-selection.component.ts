@@ -22,8 +22,8 @@ export class ModeSelectionComponent {
 
 	setClass():Record<string, boolean>{
 		return {
-			'pixel-font' : this.router.url.includes('/text'),
-			'hack-font' : this.router.url.includes('/terminal')
+			'pixel-font' : this.router.url.includes('/normal'),
+			'hack-font' : this.router.url.includes('/nerd')
 		}
 	}
 }

@@ -26,4 +26,5 @@ export class NavbarComponent implements OnInit{
 		this.navHelper.currentpage.subscribe(page => this.currentPage = page);
 	}
 
+
 }

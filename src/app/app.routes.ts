@@ -1,14 +1,15 @@
 import { Routes } from "@angular/router";
-import { AboutComponent } from "./components/text-mode/pages/about/about.component";
-import { ProjectsComponent } from "./components/text-mode/pages/projects/projects.component";
-import { TerminalComponent } from "./components/terminal-mode/terminal/terminal.component";
-import { HomeComponent } from "./components/text-mode/home/home.component";
-import { ContactComponent } from "./components/text-mode/pages/contact/contact.component";
+import { AboutComponent } from "./components/normal-mode/pages/about/about.component";
+import { ProjectsComponent } from "./components/normal-mode/pages/projects/projects.component";
+import { HomeComponent } from "./components/normal-mode/home/home.component";
+import { ContactComponent } from "./components/normal-mode/pages/contact/contact.component";
+
+import { TerminalComponent } from "./components/nerd-mode/terminal/terminal.component";
 
 export const routes: Routes = [
 
     {
-        path: "text",
+        path: "normal",
         component: HomeComponent,
         children: [
             { path: "about", component: AboutComponent },
@@ -17,7 +18,7 @@ export const routes: Routes = [
         ]
     },
 
-    { path: "terminal", component: TerminalComponent },
-    { path: "", redirectTo: "/text", pathMatch: "full" },
-    { path: "**", redirectTo: "/text", pathMatch: "full" }
+    { path: "nerd", component: TerminalComponent },
+    { path: "", redirectTo: "/normal", pathMatch: "full" },
+    { path: "**", redirectTo: "/normal", pathMatch: "full" }
 ];
