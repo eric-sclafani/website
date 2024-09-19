@@ -8,11 +8,13 @@ export class InfoService {
     public about(): any {
 
         const general = {
-            p1: 'graduate turned fullstack .NET Developer working at the Kings County District Attorney\'s office (KCDA). Here I develop RESTful applications for legal staff to perform CRUD operations on complex legal data.',
+            p1: 'graduate turned fullstack .NET Developer working at the Kings County District Attorney\'s office (KCDA).',
+            p2: ' Here I develop RESTful applications for legal staff to perform CRUD operations on complex legal data.',
         }
 
         const research = {
-            p1: 'My graduate research focused on using advanced stylometric feature extraction to embed language data into high-dimensional vectors. These vectors were then used for authorship attribution, the task of automatically identifying the author of a document. ',
+            p1: 'My graduate research focused on using advanced stylometric feature extraction to embed language data into high-dimensional vectors.',
+            p2: 'These vectors were then used for authorship attribution, the task of automatically identifying the author of a document.',
             pub: {
                 text: 'Check out the arXiv paper',
                 link: 'https://arxiv.org/abs/2406.12131'
