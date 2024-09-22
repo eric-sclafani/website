@@ -1,11 +1,16 @@
-<div id="nav-wrapper" [ngClass]="setClass()">
+<div id="nav-wrapper">
     <nav>
         <a class="link" routerLink="/normal" routerLinkActive="active">
-            Normal mode
+            <button class="mode-button" [ngClass]="setClass()">
+                Normal mode
+            </button>
         </a>
+        
     
         <a class="link" routerLink="/nerd" routerLinkActive="active">
-            Nerd mode
+            <button class="mode-button" [ngClass]="setClass()">
+                Nerd mode
+            </button>
         </a>
     </nav>
 </div>

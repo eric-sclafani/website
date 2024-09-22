@@ -13,20 +13,12 @@ export class AboutComponent implements OnInit, OnDestroy {
 
     private page = "about";
     public about: any;
-	public projects: any;
-	public resumePath: any;
-	public links: any;
 
     constructor(private _navHelper: NavHelperService, private _info: InfoService){}
 
     ngOnInit(): void {
         this._navHelper.changeCurrentPage(this.page);
-
         this.about = this._info.about();
-		this.projects = this._info.projects();
-		this.resumePath = this._info.resumePath();
-		this.links = this._info.links();
-
     }
 
     ngOnDestroy(): void {

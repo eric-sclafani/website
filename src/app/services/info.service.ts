@@ -83,7 +83,7 @@ export class InfoService {
             github: 'https://github.com/eric-sclafani',
             linkedin: 'https://www.linkedin.com/in/eric-sclafani-64b337226/',
             email: 'eric.sclafani321@gmail.com',
-            repo: 'https://github.com/eric-sclafani/Portfolio',
+            repo: 'https://github.com/eric-sclafani/website',
             rickroll: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         }
     }

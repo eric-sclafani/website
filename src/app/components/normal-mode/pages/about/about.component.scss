@@ -8,21 +8,8 @@
 
 .card-wrapper {
     display:flex;
-    gap:20vw;
+    gap:10vw;
     margin-bottom:7vh;
-}
-
-
-.card {
-    @include pixel-font;
-    text-align: center;
-    line-height:1.5;
-    font-size:1.3rem;
-    width:30vw;
-    border:ridge white 15px;
-    border-radius:20px;
-    background-color: rgb(225, 230, 237, 0.85);
-    padding:5px;
 }
 
 
