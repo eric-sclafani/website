@@ -11,6 +11,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - https://liveterm.vercel.app/
 
+- https://sirlisko.com/
+
 
 # Credits:
 
