@@ -45,7 +45,7 @@ export class InfoService {
             'Reading',
             'Bird watching',
             'Watching anime/shows/movies',
-            'long walks',
+            'Long walks',
             ]
 
 
