@@ -1,5 +1,6 @@
 @import '../../../styles.scss';
 
+
 .nav-button {
     cursor: pointer;
     height:100px;
@@ -15,7 +16,11 @@
         inset -4px 2px 1px 1px grey,
         inset -4px -2px 1px 1px lightgray,
         inset 4px 0px 1px 1px lightgray, 
-        6px 2px 1px 1px black   ;  
+        6px 2px 1px 1px black;
+        
+    @media screen and (max-width:$mobile){
+        margin-top:15px;
+    }
 
 }
 
@@ -42,4 +47,8 @@
     border-radius:20px;
     background-color: rgb(225, 230, 237, 0.85);
     padding:5px;
+
+    @media screen and (max-width:$mobile) {
+        width:80vw;
+    }
 }

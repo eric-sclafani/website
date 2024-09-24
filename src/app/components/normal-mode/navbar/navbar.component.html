@@ -12,9 +12,20 @@
     }
 </ng-template>
 
+<ng-template #head let-anim="anim">
+    <img id="eric-photo" 
+        class="{{ anim }}"
+        src="/assets/img/eric_photo_head_32px.png"/>
+</ng-template>
+
 
 <div id="nav-wrapper">
+
+    @if(displayMobileLayout()){
+        <ng-container *ngTemplateOutlet="head; context: {anim: 'translateHeadMobile'}"></ng-container>
+    }
     <nav>
+
         <ul>
             <li>
                 <ng-container *ngTemplateOutlet="navButton; context: {text: 'Who am I?', link:'/normal/about'}"></ng-container>
@@ -25,7 +36,9 @@
         </ul>
     </nav>
     
-    <img id="eric-photo" class="translateHead" src="/assets/img/eric_photo_head_32px.png"/>
+    @if(!displayMobileLayout()){
+        <ng-container *ngTemplateOutlet="head; context: {anim: 'translateHead'}"></ng-container>
+    }
     
     <nav>
         <ul>

@@ -1,48 +1,47 @@
 <div id="about-page">
 
-    <div class="card-wrapper">
-        <div class="card about-general">
-            <p><a class="link" href="https://plato.stanford.edu/entries/computational-linguistics/" target="_blank">Computational linguistics</a> {{ about.general.p1 }}</p>
-            <p style="margin-top:8px">{{ about.general.p2 }}</p>
-        </div>
-    
-        <div class="card">
-            <p>{{ about.research.p1 }}</p>
-            <p style="margin-top:8px">{{ about.research.p2 }}</p>
-        </div>
+
+    <div class="card about-general">
+        <p><a class="link" href="https://plato.stanford.edu/entries/computational-linguistics/" target="_blank">Computational linguistics</a> {{ about.general.p1 }}</p>
+        <p style="margin-top:8px">{{ about.general.p2 }}</p>
     </div>
 
-    <div class="card-wrapper">
-        <div class="card skills">
+    <div class="card">
+        <p>{{ about.research.p1 }}</p>
+        <p style="margin-top:8px">{{ about.research.p2 }}</p>
+    </div>
 
-            <div class="skills-wrapper">
-                <strong>Frontend skills</strong>
-                <ul>
-                    @for(skill of about.skills.frontend; track skill){
-                        <li> {{ skill }} </li>
-                    }
-                </ul>
-            </div>
-            
-            <div class="skills-wrapper">
-                <strong>Backend skills</strong>
-                <ul>
-                    @for(skill of about.skills.backend; track skill){
-                        <li> {{ skill }} </li>
-                    }
-                </ul>
-            </div>
-            
-            
-        </div>
-    
-        <div class="card">
-            <strong>Hobbies</strong>
+
+
+    <div class="card skills">
+
+        <div class="skills-wrapper">
+            <strong>Frontend skills</strong>
             <ul>
-                @for(hobby of about.hobbies; track hobby){
-                    <li> {{ hobby }} </li>
+                @for(skill of about.skills.frontend; track skill){
+                    <li> {{ skill }} </li>
                 }
             </ul>
         </div>
+        
+        <div class="skills-wrapper">
+            <strong>Backend skills</strong>
+            <ul>
+                @for(skill of about.skills.backend; track skill){
+                    <li> {{ skill }} </li>
+                }
+            </ul>
+        </div>
+        
+        
+    </div>
+
+    <div class="card">
+        <strong>Hobbies</strong>
+        <ul>
+            @for(hobby of about.hobbies; track hobby){
+                <li> {{ hobby }} </li>
+            }
+        </ul>
     </div>
 </div>

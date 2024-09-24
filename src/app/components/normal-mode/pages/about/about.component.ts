@@ -27,5 +27,3 @@ export class AboutComponent implements OnInit, OnDestroy {
 }
 
 
-//* About - use this maybe https://github.com/ryo-ma/github-profile-trophy 
-//* Projects - use same or similar code to display repos like here https://eric-sclafani.github.io/repositories/ 

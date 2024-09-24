@@ -3,6 +3,10 @@
 #nav-wrapper {
     display:flex;
     align-items: center;
+
+    @media screen and (max-width:$mobile){
+        flex-direction: column;
+    }
 }
 
 ul {
@@ -13,10 +17,19 @@ ul {
     flex-direction: column;
     justify-content: center;
     gap: 50vh 50vw;
+
+    @media screen and (max-width: $mobile){
+        gap: 0
+    }
+
 }
 
 #eric-photo {
-    height: 60vh
+    height: 60vh;
+
+    @media screen and (max-width:$mobile){
+        height:30vh;
+    }
 }
 
 @keyframes translateHead {
@@ -31,10 +44,26 @@ ul {
     100% {
         transform: translateY(0)
     }
+}
 
-    
+@keyframes translateHeadMobile {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0)
+    }
 }
 
 .translateHead {
     animation: 3.5s translateHead infinite ease-in-out;
+}
+
+.translateHeadMobile {
+    animation: 3.5s translateHeadMobile infinite ease-in-out;
 }

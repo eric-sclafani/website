@@ -26,3 +26,6 @@ export class ProjectsComponent implements OnInit, OnDestroy{
 			this.navHelper.changeCurrentPage("");
 	}
 }
+
+
+//* Projects - use same or similar code to display repos like here https://eric-sclafani.github.io/repositories/ 

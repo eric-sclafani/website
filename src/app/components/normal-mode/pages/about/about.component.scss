@@ -1,15 +1,13 @@
 @import '../../normal-mode.scss';
 
 #about-page {
-    display:flex;
-    flex-direction: column;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap: 5vw 5vw;
 
-}
-
-.card-wrapper {
-    display:flex;
-    gap:10vw;
-    margin-top:2vh;
+    @media screen and (max-width:$mobile){
+        grid-template-columns:none
+    }
 }
 
 
