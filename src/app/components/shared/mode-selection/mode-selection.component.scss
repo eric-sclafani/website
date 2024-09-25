@@ -26,11 +26,11 @@ nav {
     border-radius: 30px;
     padding: 20px;
 
-    @media screen and (max-width:903px) {
+    @media (max-width:903px) {
         flex-direction: column;
         align-items: center;
     }
-    @media screen and (max-width:490px) {
+    @media (max-width:490px) {
         text-align: center;
 
     }

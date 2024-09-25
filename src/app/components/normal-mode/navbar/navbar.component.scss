@@ -4,7 +4,7 @@
     display:flex;
     align-items: center;
 
-    @media screen and (max-width:$mobile){
+    @media (max-width:$mobile){
         flex-direction: column;
     }
 }
@@ -18,7 +18,7 @@ ul {
     justify-content: center;
     gap: 50vh 50vw;
 
-    @media screen and (max-width: $mobile){
+    @media (max-width: $mobile){
         gap: 0
     }
 
@@ -27,7 +27,7 @@ ul {
 #eric-photo {
     height: 60vh;
 
-    @media screen and (max-width:$mobile){
+    @media (max-width:$mobile){
         height:30vh;
     }
 }
