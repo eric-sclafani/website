@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 # Custom
-/src/assets/resume/*.typ
+/src/assets/resume/lib.pdf
