@@ -1,9 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavHelperService } from '../../../../services/nav-helper.service';
-import { InfoService } from '../../../../services/info.service';
 import { GithubService } from '../../../../services/github.service';
+import { Repository } from '../../../../interfaces/repository';
 
-// TODO: inject github api code and retrieve repo data
 
 @Component({
 	selector: 'app-projects',
@@ -14,28 +13,81 @@ import { GithubService } from '../../../../services/github.service';
 })
 export class ProjectsComponent implements OnInit, OnDestroy{
 
-	private page = "projects";
-	public projects: any;
+	private page = 'projects';
+	public repos:Repository[] = [];
+
+	public iconMapping = {
+		'Python': 'assets/icons/python-svgrepo-com.svg'
+	}
 
 	constructor(
 		private _navHelper: NavHelperService, 
-		private info: InfoService,
 		private github: GithubService
-		){
-		this.projects = info.projects();
-	}
+		) {}
 
 	ngOnInit(): void {
-			this._navHelper.changeCurrentPage(this.page);
+		this._navHelper.changeCurrentPage(this.page);
+		this.repos = this.getDevData()
+		//this.getRepositories();
+
 	}
 
 	ngOnDestroy(): void {
-			this._navHelper.changeCurrentPage("");
+		this._navHelper.changeCurrentPage("");
 	}
+
+	private getDevData():Repository[]{
+		return [
+			{
+			  "name": "gram2vec",
+			  "description": "Gram2Vec is a document embedding algorithm that embeds documents into a higher dimensional space based off grammaticl style.",
+			  "stargazers_count": 6,
+			  "language": "Python",
+			  "forks": 1,
+			  "html_url": "https://github.com/eric-sclafani/gram2vec"
+			},
+			{
+			  "name": "syntax-regex-matcher",
+			  "description": "Syntax Regex Matcher is a package for applying regular expressions to parse trees to look for syntactic constructions in English sentences.",
+			  "stargazers_count": 1,
+			  "language": "Python",
+			  "forks": 0,
+			  "html_url": "https://github.com/eric-sclafani/syntax-regex-matcher"
+			},
+			{
+			  "name": "website",
+			  "description": "My personal website written in Angular 17.",
+			  "stargazers_count": 0,
+			  "language": "TypeScript",
+			  "forks": 0,
+			  "html_url": "https://github.com/eric-sclafani/website"
+			}
+		  ]
+	}
+
+	private getRepositories():void{
+		const desiredRepos = [
+			'gram2vec',
+			'syntax-regex-matcher',
+			'website'
+		]
+		
+		this.github.getRepos().subscribe({ 
+			next: (value) => {
+				for (let repo of value){
+					if (desiredRepos.includes(repo.name)){
+						this.repos.push(repo)
+					}
+				}
+			},
+			error: (e) => console.log(e),
+			complete: () => console.info("Done retrieving repos!")
+			}
+		)
+	}
+
 }
 
 
 //* Projects - use same or similar code to display repos like here https://eric-sclafani.github.io/repositories/ 
-//https://www.svgrepo.com/svg/533052/star
-//https://www.svgrepo.com/svg/509958/git-branch
-// https://www.svgrepo.com/svg/528057/book-2
+

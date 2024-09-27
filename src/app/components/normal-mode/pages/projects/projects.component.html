@@ -1,20 +1,31 @@
 <div class="cards-wrapper">
-    @for(project of projects; track project){
-        <div class="card">
-            <div class="project-wrapper">
-    
-                <div>
-                    <strong>Title: </strong> <span class="project-title">{{ project.title }}</span>
-                </div>
-    
-                <div class="project-desc">
-                   <strong>Description: </strong> <p>{{ project.desc }}</p>
-                </div>
+    @for(repo of repos; track repo){
 
-                <div><strong>Github: </strong><a href="{{ project.link }}" target="_blank">Link</a></div>
-    
+     <div class="repo-card">
+
+        <h3>{{ repo.name }}</h3>
+        <p>{{ repo.description }}</p>
+
+        <div class="sub-content">
+
+            <div class="language"> 
+
+                {{ repo.language }}
             </div>
+
+            <div class="stars"> 
+                <img src="assets/icons/star-svgrepo-com.png">
+                {{ repo.stargazers_count }}
+            </div>
+
+            <div class="forks">
+                <img src="assets/icons/git-branch-svgrepo-com.png">
+                {{ repo.forks }}
+            </div>
+
         </div>
+
+     </div>
     }
 
 </div>
