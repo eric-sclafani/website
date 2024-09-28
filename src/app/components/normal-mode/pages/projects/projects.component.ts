@@ -16,8 +16,12 @@ export class ProjectsComponent implements OnInit, OnDestroy{
 	private page = 'projects';
 	public repos:Repository[] = [];
 
-	public iconMapping = {
-		'Python': 'assets/icons/python-svgrepo-com.svg'
+	public iconMapping:Record<string, string> = {
+		'Python': 'assets/icons/python-svgrepo-com.png',
+		'TypeScript': 'assets/icons/typescript-svgrepo-com.png',
+		'JavaScript': 'assets/icons/js-svgrepo-com.png',
+		'Ruby' : 'assets/icons/ruby-svgrepo-com.png',
+		'C#' : 'assets/icons/dotnet-svgrepo-com.png'
 	}
 
 	constructor(
@@ -40,7 +44,7 @@ export class ProjectsComponent implements OnInit, OnDestroy{
 		return [
 			{
 			  "name": "gram2vec",
-			  "description": "Gram2Vec is a document embedding algorithm that embeds documents into a higher dimensional space based off grammaticl style.",
+			  "description": "Gram2Vec is a document embedding algorithm that embeds documents into a higher dimensional space based off grammatical style.",
 			  "stargazers_count": 6,
 			  "language": "Python",
 			  "forks": 1,

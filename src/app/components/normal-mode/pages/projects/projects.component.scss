@@ -4,7 +4,7 @@
     display:grid;
     grid-template-columns: 2fr 2fr;
     grid-auto-rows: auto;
-    grid-gap: 10px;
+    grid-gap: 25px;
 }
 
 .repo-card {
@@ -14,9 +14,10 @@
     max-width:30vw;
     padding:10px;
     flex-direction: column;
-    border:ridge white thick;
     border-radius:10px;
-    background-color: rgb(225, 230, 237, 0.85);
+    background-color: rgb(225, 230, 237, 0.95);
+    color:black;
+    text-decoration: none;
 
     .sub-content {
         display:flex;
@@ -26,11 +27,21 @@
     h3 {
         font-size:1.5rem;
     }
+
+    &:hover{
+        box-shadow:5px 5px 10px 10px white;
+    }
+}
+
+.language,
+.name {
+    display:flex;
+    align-items: center;
+    gap:5px
 }
 
 .stars,
-.forks,
-.language {
+.forks {
     display: flex;
 }
 
