@@ -30,7 +30,7 @@
 #resume-item[
  
 
-  - Within two months of employment, built document category/sub-category maintenance tool with an Angular frontend, ASP.NET Core backend, and SQL Server database. This app allows legal staff to perform CRUD operations such as adding new document categories and editing existing ones inside of lookup tables. This tool is essential to ensure correctness for all related document data and the various applications that rely on it.
+  - Within two months of employment, built document category/sub-category maintenance tool with an Angular frontend, ASP.NET Core backend, and SQL Server database. This app allows legal staff to perform CRUD operations such as adding new document categories and editing existing ones inside of lookup tables. This tool is essential to ensure correctness for all document related data and the various applications that rely on it.
 
 
 // Case flagger entry

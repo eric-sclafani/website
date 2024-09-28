@@ -4,6 +4,7 @@
     display:flex;
     flex-direction:column;
     align-items:center;
+    min-height:100vh;
     gap:10px;
     background-image: url("/assets/img/background.jpg"); 
     background-size: 100% 100%;
@@ -11,11 +12,11 @@
 
 }
 
-.home-button {
-    max-height:40px;
+// ensures content takes the remaining available vertical space while also aligning to top
+#content-wrapper {
+    flex: 1; 
 }
 
-
-#footer {
-    margin-bottom:10px;
+.home-button {
+    max-height:40px;
 }

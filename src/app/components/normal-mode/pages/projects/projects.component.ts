@@ -16,6 +16,13 @@ export class ProjectsComponent implements OnInit, OnDestroy{
 	private page = 'projects';
 	public repos:Repository[] = [];
 
+	private desiredRepos = [
+		'gram2vec',
+		'syntax-regex-matcher',
+		'website'
+	]
+
+	// TODO: keep an eye on whether these mappings work when more repos are added
 	public iconMapping:Record<string, string> = {
 		'Python': 'assets/icons/python-svgrepo-com.png',
 		'TypeScript': 'assets/icons/typescript-svgrepo-com.png',
@@ -70,16 +77,12 @@ export class ProjectsComponent implements OnInit, OnDestroy{
 	}
 
 	private getRepositories():void{
-		const desiredRepos = [
-			'gram2vec',
-			'syntax-regex-matcher',
-			'website'
-		]
+		
 		
 		this.github.getRepos().subscribe({ 
 			next: (value) => {
 				for (let repo of value){
-					if (desiredRepos.includes(repo.name)){
+					if (this.desiredRepos.includes(repo.name)){
 						this.repos.push(repo)
 					}
 				}
@@ -91,7 +94,3 @@ export class ProjectsComponent implements OnInit, OnDestroy{
 	}
 
 }
-
-
-//* Projects - use same or similar code to display repos like here https://eric-sclafani.github.io/repositories/ 
-
