@@ -32,19 +32,16 @@
 
   - Within two months of employment, built document category/sub-category maintenance tool with an Angular frontend, ASP.NET Core backend, and SQL Server database. This app allows legal staff to perform CRUD operations such as adding new document categories and editing existing ones inside of lookup tables. This tool is essential to ensure correctness for all document related data and the various applications that rely on it.
 
-
-// Case flagger entry
-
-// talk about getting app requirements from legal staff (ADAs, paralegals) and translating these requirements into tools for them to use
-
-// talk about rebuilding old MVC .NET FRamework code into vuejs app from ground up (rebuilt)
-  - 
+  - Developed new case flagger app as part of a suite of existing apps that let legal staff track information about defendants. Specifically, it tracks data about defendants inside the Drug Treatment Alternative-to-Prison (DTAP) program. Initially a .NET Framework MVC and jQuery app, it was entirely re-engineered using VueJS for the frontend, Vuetify for UI components, and ASP.NET Core for the backend with SQL Server as the database.
 
   // Dropped into an existing codebase and familiarized myself with code...
 
   - 
 
   - Wrote stored procedures in SQL Server for applications to access data spread across various tables.
+
+
+// talk about getting app requirements from legal staff (ADAs, paralegals) and translating these requirements into tools for them to use
 
   - Translated application requirements from legal staff into ...
 
@@ -106,6 +103,7 @@
     "CSS",
     "Bootstrap",
     "SCSS",
+    "Vuetify"
   )
 )
 
@@ -113,6 +111,7 @@
   (
     "ASP.NET Core",
     "C#",
+    "MVC",
     "Python",
     "FastAPI"
   )
