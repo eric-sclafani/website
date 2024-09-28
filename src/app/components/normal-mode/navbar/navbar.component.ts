@@ -37,10 +37,6 @@ export class NavbarComponent implements OnInit{
   	}  
 
 	displayMobileLayout():boolean {
-		return this.screenWidth < 450;
+		return this.screenWidth <= 860;
 	}
-
-
-
-
 }

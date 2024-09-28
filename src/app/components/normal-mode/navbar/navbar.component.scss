@@ -29,7 +29,9 @@ ul {
 
     @media (max-width:$mobile){
         height:30vh;
+        margin-top:10px;
     }
+
 }
 
 @keyframes translateHead {
