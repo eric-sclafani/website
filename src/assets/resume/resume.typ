@@ -16,7 +16,12 @@
 )
 
 // TODO: try to add an icon section in Author for my website link, call it Homepage (do after hosting website and buying domain)
-
+#align(center)[
+#text(
+    red, 
+    weight: "bold", 
+    "RESUME WORK IN PROGRESS")
+]
 
 = Experience
 
