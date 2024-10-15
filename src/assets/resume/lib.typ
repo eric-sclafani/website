@@ -23,7 +23,6 @@
 
 /// Helpers
 
-// layout utility
 #let __justify_align(left_body, right_body) = {
   block[
     #left_body
@@ -55,12 +54,6 @@
   ]
 }
 
-/// Show a link M.A. Computational Linguistics" an icon, specifically for Github projects
-
-/// *Example*
-/// #example(`resume.github-link("DeveloperPaul123/awesome-resume")`)
-/// - github-path (string): The path to the Github project (e.g. "DeveloperPaul123/awesome-resume")
-/// -> none
 #let github-link(github-path) = {
   set box(height: 11pt)
   
@@ -72,8 +65,6 @@
   ]
 }
 
-/// Right section for the justified headers
-/// - body (content): The body of the right header
 #let secondary-right-header(body) = {
   set text(
     size: 11pt,
@@ -82,8 +73,6 @@
   body
 }
 
-/// Right section of a tertiaty headers. 
-/// - body (content): The body of the right header
 #let tertiary-right-header(body) = {
   set text(
     weight: "light",
@@ -92,9 +81,6 @@
   body
 }
 
-/// Justified header that takes a primary section and a secondary section. The primary section is on the left and the secondary section is on the right.
-/// - primary (content): The primary section of the header
-/// - secondary (content): The secondary section of the header
 #let justified-header(primary, secondary) = {
   set block(
     above: 0.7em,
@@ -109,9 +95,6 @@
   ]
 }
 
-/// Justified header that takes a primary section and a secondary section. The primary section is on the left and the secondary section is on the right. This is a smaller header compared to the `justified-header`.
-/// - primary (content): The primary section of the header
-/// - secondary (content): The secondary section of the header
 #let secondary-justified-header(primary, secondary) = {
   __justify_align[
     === #primary
@@ -123,17 +106,6 @@
 
 /// ---- Resume Template ----
 
-/// Resume template that is inspired by the Awesome CV Latex template by posquit0. This template can loosely be considered a port of the original Latex template.
-///
-/// The original template: https://github.com/posquit0/Awesome-CV 
-///
-/// - author (content): Structure that takes in all the author's information
-/// - date (string): The date the resume was created
-/// - accent-color (color): The accent color of the resume
-/// - colored-headers (boolean): Whether the headers should be colored or not
-/// - language (string): The language of the resume, defaults to "en". See lang.toml for available languages
-/// - body (content): The body of the resume
-/// -> none
 #let resume(
   author: (:),
   date: datetime.today().display("[month repr:long] [day], [year]"),
@@ -178,7 +150,6 @@
     footer-descent: 0pt,
   )
   
-  // set paragraph spacing
   show par: set block(
     above: 0.75em,
     below: 0.75em,
@@ -304,10 +275,6 @@
   contacts
   body
 }
-
-/// The base item for resume entries. 
-/// This formats the item for the resume entries. Typically your body would be a bullet list of items. Could be your responsibilities at a company or your academic achievements in an educational background section.
-/// - body (content): The body of the resume entry
 #let resume-item(body) = {
   set text(
     size: 10pt,
@@ -319,11 +286,6 @@
   body
 }
 
-/// The base item for resume entries. This formats the item for the resume entries. Typically your body would be a bullet list of items. Could be your responsibilities at a company or your academic achievements in an educational background section.
-/// - title (string): The title of the resume entry
-/// - location (string): The location of the resume entry
-/// - date (string): The date of the resume entry, this can be a range (e.g. "Jan 2020 - Dec 2020")
-/// - description (content): The body of the resume entry
 #let resume-entry(
   title: none,
   location: "",
@@ -337,36 +299,10 @@
   ]
 }
 
-
-// #let resume-education-entry(
-//   title:none,
-
-// )
-
-/// Show cumulative GPA.
-/// *Example:*
-/// #example(`resume.resume-gpa("3.5", "4.0")`)
-#let resume-gpa(numerator, denominator) = {
-  set text(
-    size: 12pt,
-    style: "italic",
-    weight: "light",
-  )
-  text[Cumulative GPA: #box[#strong[#numerator] / #denominator]]
-}
-
-/// Show a certification in the resume.
-/// *Example:*
-/// #example(`resume.resume-certification("AWS Certified Solutions Architect - Associate", "Jan 2020")`)
-/// - certification (content): The certification
-/// - date (content): The date the certification was achieved
 #let resume-certification(certification, date) = {
   justified-header(certification, date)
 }
 
-/// Show a list of skills in the resume under a given category.
-/// - category (string): The category of the skills
-/// - items (list): The list of skills. This can be a list of strings but you can also emphasize certain skills by using the `strong` function.
 #let resume-skill-item(category, items) = {
   set block(below: 0.65em)
   set pad(top: 2pt)
@@ -390,266 +326,3 @@
     )
   ]
 }
-
-/// ---- End of Resume Template ----
-
-/// ---- Coverletter ----
-
-/// Cover letter template that is inspired by the Awesome CV Latex template by posquit0. This template can loosely be considered a port of the original Latex template. 
-/// This coverletter template is designed to be used with the resume template.
-/// - author (content): Structure that takes in all the author's information
-/// - profile-picture (image): The profile picture of the author. This will be cropped to a circle and should be square in nature.
-/// - date (date): The date the cover letter was created
-/// - accent-color (color): The accent color of the cover letter
-/// - body (content): The body of the cover letter
-#let coverletter(
-  author: (:),
-  profile-picture: image,
-  date: datetime.today().display("[month repr:long] [day], [year]"),
-  accent-color: default-accent-color,
-  language: "en",
-  body,
-) = {
-  if type(accent-color) == "string" {
-    accent-color = rgb(accent-color)
-  }
-  
-  // language data
-  let lang_data = toml("lang.toml")
-  
-  set document(
-    author: author.firstname + " " + author.lastname,
-    title: "cover-letter",
-  )
-  
-  set text(
-    font: ("Source Sans Pro"),
-    lang: language,
-    size: 11pt,
-    fill: color-darkgray,
-    fallback: true,
-  )
-  
-  set page(
-    paper: "a4",
-    margin: (left: 15mm, right: 15mm, top: 10mm, bottom: 10mm),
-    footer: [
-      #set text(
-        fill: gray,
-        size: 8pt,
-      )
-      #__justify_align_3[
-        #smallcaps[#date]
-      ][
-        #smallcaps[
-          #author.firstname
-          #author.lastname
-          #sym.dot.c
-          #linguify("cover-letter", from: lang_data)
-        ]
-      ][
-        #counter(page).display()
-      ]
-    ],
-    footer-descent: 0pt,
-  )
-  
-  // set paragraph spacing
-  show par: set block(
-    above: 0.75em,
-    below: 0.75em,
-  )
-  set par(justify: true)
-  
-  set heading(
-    numbering: none,
-    outlined: false,
-  )
-  
-  show heading: it => [
-    #set block(
-      above: 1em,
-      below: 1em,
-    )
-    #set text(
-      size: 16pt,
-      weight: "regular",
-    )
-    
-    #align(left)[
-      #text[#strong[#text(accent-color)[#it.body.text]]]
-      #box(width: 1fr, line(length: 100%))
-    ]
-  ]
-  
-  let name = {
-    align(right)[
-      #pad(bottom: 5pt)[
-        #block[
-          #set text(
-            size: 32pt,
-            style: "normal",
-            font: ("Roboto"),
-          )
-          #text(accent-color, weight: "thin")[#author.firstname]
-          #text(weight: "bold")[#author.lastname]
-        ]
-      ]
-    ]
-  }
-  
-  let positions = {
-    set text(
-      accent-color,
-      size: 9pt,
-      weight: "regular",
-    )
-    align(right)[
-      #smallcaps[
-        #author.positions.join(
-          text[#"  "#sym.dot.c#"  "],
-        )
-      ]
-    ]
-  }
-  
-  
-  let contacts = {
-    set box(height: 9pt)
-    
-    let separator = [#box(sym.bar.v)]
-    
-    align(right)[
-      #set text(
-        size: 8pt,
-        weight: "light",
-        style: "normal",
-      )
-      #block[
-        #align(horizon)[
-          #stack(
-            dir: ltr,
-            spacing: 0.5em,
-            if author.phone != none [
-              #phone-icon
-              #box[#text(author.phone)]
-              #separator
-            ],
-            if author.email != none [
-              #email-icon
-              #box[#text(author.email)]
-            ],
-            if author.github != none [
-              #separator
-              #github-icon
-              #box[#link("https://github.com/" + author.github)[#author.github]]
-            ],
-            if author.linkedin != none [
-              #separator
-              #linkedin-icon
-              #box[
-                #link("https://www.linkedin.com/in/" + author.linkedin)[#author.firstname #author.lastname]
-              ]
-            ],
-          )
-        ]
-      ]
-    ]
-  }
-  
-  let letter-heading = {
-    grid(
-      columns: (1fr, 2fr),
-      rows: (100pt),
-      align(left + horizon)[
-        #block(
-          clip: true,
-          stroke: 0pt,
-          radius: 2cm,
-          width: 4cm,
-          height: 4cm,
-          profile-picture,
-        )
-      ],
-      [
-        #name
-        #phone
-        #positions
-        #contacts
-      ],
-    )
-  }
-  
-  let letter-conclusion = {
-    align(bottom)[
-      #pad(bottom: 2em)[
-        #text(weight: "light")[Sincerely,] \
-        #text(weight: "bold")[#author.firstname #author.lastname] \ \
-        #text(weight: "light", style: "italic")[ #linguify(
-            "attached",
-            from: lang_data,
-          )#sym.colon #linguify("curriculum-vitae", from: lang_data)]
-      ]
-    ]
-  }
-  
-  // actual content
-  letter-heading
-  body
-  linebreak()
-  letter-conclusion
-}
-
-/// Cover letter heading that takes in the information for the hiring company and formats it properly.
-/// - entity-info (content): The information of the hiring entity including the company name, the target (who's attention to), street address, and city
-/// - date (date): The date the letter was written (defaults to the current date)
-#let hiring-entity-info(
-  entity-info: (:),
-  date: datetime.today().display("[month repr:long] [day], [year]"),
-) = {
-  set par(leading: 1em)
-  pad(top: 1.5em, bottom: 1.5em)[
-    #__justify_align[
-      #text(weight: "bold", size: 12pt)[#entity-info.target]
-    ][
-      #text(weight: "light", style: "italic", size: 9pt)[#date]
-    ]
-    
-    #pad(top: 0.65em, bottom: 0.65em)[
-      #text(weight: "regular", fill: color-gray, size: 9pt)[
-        #smallcaps[#entity-info.name] \
-        #entity-info.street-address \
-        #entity-info.city \
-      ]
-    ]
-  ]
-}
-
-/// Letter heading for a given job position and addressee.
-/// - job-position (string): The job position you are applying for
-/// - addressee (string): The person you are addressing the letter to
-#let letter-heading(job-position: "", addressee: "") = {
-  let lang_data = toml("lang.toml")
-  
-  // TODO: Make this adaptable to content
-  underline(evade: false, stroke: 0.5pt, offset: 0.3em)[
-    #text(weight: "bold", size: 12pt)[Job Application for #job-position]
-  ]
-  pad(top: 1em, bottom: 1em)[
-    #text(weight: "light", fill: color-gray)[
-      #linguify("dear", from: lang_data) #addressee,
-    ]
-  ]
-}
-
-/// Cover letter content paragraph. This is the main content of the cover letter.
-/// - content (content): The content of the cover letter
-#let coverletter-content(content) = {
-  pad(top: 1em, bottom: 1em)[
-    #set par(first-line-indent: 3em)
-    #set text(weight: "light")
-    #content
-  ]
-}
-
-/// ---- End of Coverletter ----

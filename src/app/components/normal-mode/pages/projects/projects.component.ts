@@ -19,10 +19,12 @@ export class ProjectsComponent implements OnInit, OnDestroy{
 	private desiredRepos = [
 		'gram2vec',
 		'syntax-regex-matcher',
-		'website'
+		'website',
+        'nyc-favorite-spots'
 	]
 
 	// TODO: keep an eye on whether these mappings work when more repos are added
+    // TODO: maybe use github api token
 	public iconMapping:Record<string, string> = {
 		'Python': 'assets/icons/python-svgrepo-com.png',
 		'TypeScript': 'assets/icons/typescript-svgrepo-com.png',
@@ -38,8 +40,8 @@ export class ProjectsComponent implements OnInit, OnDestroy{
 
 	ngOnInit(): void {
 		this._navHelper.changeCurrentPage(this.page);
-		this.repos = this.getDevData()
-		//this.getRepositories();
+		//this.repos = this.getDevData()
+		this.getRepositories();
 
 	}
 
@@ -72,7 +74,7 @@ export class ProjectsComponent implements OnInit, OnDestroy{
 			  "language": "TypeScript",
 			  "forks": 0,
 			  "html_url": "https://github.com/eric-sclafani/website"
-			}
+			},
 		  ]
 	}
 

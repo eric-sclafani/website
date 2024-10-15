@@ -2,10 +2,10 @@
 
 #show: resume.with(
   author: (
-    firstname: "Eric", 
+    firstname: "Eric",
     lastname: "Sclafani",
     phone: "631-681-2797",
-    email: "eric.sclafani321@gmail.com", 
+    email: "eric.sclafani321@gmail.com",
     github: "eric-sclafani",
 
     linkedin: "Eric Sclafani",
@@ -15,40 +15,34 @@
   ),
 )
 
-// TODO: try to add an icon section in Author for my website link, call it Homepage
+// TODO: try to add an icon section in Author for my website link, call it Homepage (do after hosting website and buying domain)
 
 
 = Experience
 
 #resume-entry(
-  title: "Junior .NET Developer",
+  title: "Junior . NET Developer",
   location: "Brooklyn, NY",
   date: "April 2024 - Present",
   description: "Kings County District Attorney's Office"
 )
 
 #resume-item[
- 
 
-  - Within two months of employment, built document category/sub-category maintenance tool with an Angular frontend, ASP.NET Core backend, and SQL Server database. This app allows legal staff to perform CRUD operations such as adding new document categories and editing existing ones inside of lookup tables. This tool is essential to ensure correctness for all document related data and the various applications that rely on it.
+  - Within first month of employment, built document category/sub-category maintenance tool with Angular for the frontend, Material UI for the interface, ASP.NET Core backend, and SQL Server database. This app allows Legal staff to perform CRUD operations such as adding new document categories and editing existing ones inside of lookup tables. This tool is essential to ensure correctness for all document related data and the various applications that rely on it
 
-  - Developed new case flagger app as part of a suite of existing apps that let legal staff track information about defendants. Specifically, it tracks data about defendants inside the Drug Treatment Alternative-to-Prison (DTAP) program. Initially a .NET Framework MVC and jQuery app, it was entirely re-engineered using VueJS for the frontend, Vuetify for UI components, and ASP.NET Core for the backend with SQL Server as the database.
+  - Developed new case flagger app as part of a suite of existing apps that let Legal staff track information about defendants. Specifically, it tracks data about defendants inside the Drug Treatment Alternative-to-Prison (DTAP) program. Initially a .NET Framework MVC and jQuery app, entirely re-engineered using VueJS for the frontend, Vuetify for UI components, and ASP.NET Core for the backend with SQL Server as the database
 
-  // Dropped into an existing codebase and familiarized myself with code...
+  - Wrote complex SQL Server queries, stored procedures, and views that supply data to numerous data-driven applications
 
-  - 
+  - Integrated newer applications into large existing codebase spread across numerous repositories
 
-  - Wrote stored procedures in SQL Server for applications to access data spread across various tables.
+  - Worked with Legal staff to translate their application requirements into fully functional software tools
 
+  - Provided fast and efficient tech support for application users
 
-// talk about getting app requirements from legal staff (ADAs, paralegals) and translating these requirements into tools for them to use
+  // TODO: add point about teamwork
 
-  - Translated application requirements from legal staff into ...
-
-  - Worked with teammates to...
-
-  - Assisted application users with...
-  
 ]
 
 #resume-entry(
@@ -64,7 +58,7 @@
   - Developed Gram2Vec, a Python package utilizing spaCy and Pandas to convert text into vectors based on writing style. Differs from other embedding algorithms like Word2Vec in that each vector position corresponds to a concrete feature pertaining to grammar usage. This makes the vectors interpretable, a property that traditional word vectors often lack
 
 // mention iarpa provided testing code, as well as KNN approach I build using sckikit learn
-  - Performed authorship attribution experiments using Gram2Vec with testing code and data provided by IARPA.
+  - Performed authorship attribution experiments using Gram2Vec with testing code and data provided by IARPA
 
   - Collaborated with team members to compile monthly progress reports
 
@@ -80,14 +74,14 @@
 // )
 
 // #resume-item[
-//   - 
+//   -
 // ]
 
 = Skills
 
-#resume-skill-item("Frontend", 
+#resume-skill-item("Frontend",
   (
-    "JavaScript", 
+    "JavaScript",
     "TypeScript",
     "HTML",
     "Angular",
@@ -95,19 +89,21 @@
     "jQuery",
     "Ajax",
     "RxJS",
+    "LeafletJS"
     )
 )
 
-#resume-skill-item("UI", 
+#resume-skill-item("UI",
   (
     "CSS",
     "Bootstrap",
+    "Material UI",
     "SCSS",
     "Vuetify"
   )
 )
 
-#resume-skill-item("Backend", 
+#resume-skill-item("Backend",
   (
     "ASP.NET Core",
     "C#",
@@ -116,15 +112,15 @@
     "FastAPI"
   )
 )
-#resume-skill-item("Database", 
+#resume-skill-item("Database",
   (
-    "SQL server", 
+    "SQL server",
     "T-SQL",
     "MySQL"
   )
 )
 
-#resume-skill-item("Data Analysis", 
+#resume-skill-item("Data Analysis",
   (
     "Pandas",
     "Scikit-Learn",
@@ -135,7 +131,7 @@
   )
 )
 
-#resume-skill-item("Tools", 
+#resume-skill-item("Tools",
   (
     "Excel",
     "Git",
