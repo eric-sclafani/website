@@ -1,5 +1,10 @@
 # TODO
 
+## Major:
+
+- Redo the routing. ericsclafani.dev/normal does not get routed to correctly.
+- Add default page to Projects if github api requests are unsuccessfull.
+
 ## Normal mode
 
 - Maybe add more interactions (animations on hover, click, etc...)

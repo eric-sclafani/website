@@ -7,7 +7,7 @@
     phone: "631-681-2797",
     email: "eric.sclafani321@gmail.com",
     github: "eric-sclafani",
-
+    website: "https://ericsclafani.dev",
     linkedin: "Eric Sclafani",
     positions: (
       "Software Developer",
@@ -15,7 +15,6 @@
   ),
 )
 
-// TODO: try to add an icon section in Author for my website link, call it Homepage (do after hosting website and buying domain)
 #align(center)[
 #text(
     red, 

@@ -15,6 +15,10 @@
   fa-icon("github", fa-set: "Brands", fill: color-darknight),
 )
 
+#let website-icon = box(
+  image("assets/house-solid.svg"))
+)
+
 
 // for some reason this icon doesn't work with fa-icon, so we use the local version
 #let phone-icon = box(image("assets/square-phone-solid.svg"))
@@ -263,6 +267,13 @@
             #linkedin-icon
             #box[
               #link("https://www.linkedin.com/in/eric-sclafani-64b337226/")[#author.firstname #author.lastname]
+            ]
+          ]
+          #if author.website != none [
+            #separator
+            #website-icon
+            #box[
+              #link("https://ericsclafani.dev")[Homepage]
             ]
           ]
         ]
