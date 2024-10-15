@@ -65,53 +65,55 @@ export class PromptComponent implements OnInit, OnDestroy {
     }
 
     //! WIP: ON HOLD
-    public cycleThroughCommandHistory(event: any) {
-        event.preventDefault();
-        let value = '';
+    // public cycleThroughCommandHistory(event: any) {
+    //     event.preventDefault();
+    //     let value = '';
+    //     this.pruneCommandHistory(); // removes any empty string command submissions from history
 
-        this.pruneCommandHistory();
-        const commandCount = this.commandHistory.length;
-        let position = commandCount - 1;
+    //     const commandCount = this.commandHistory.length;
 
-        if (commandCount) {
-            if (event.code == 'ArrowUp') {
+    //     let position = commandCount - 1;
 
-                position = position + this.currentCommandIndex;
+    //     if (commandCount) {
+    //         if (event.code == 'ArrowUp') {
 
-                console.log('commandCount: ', commandCount)
-                console.log('Index: ', this.currentCommandIndex)
-                console.log('Position (position - index): ', position)
-                if (position != 0){
-                    this.currentCommandIndex--;
-                } 
-                else {
+    //             position = position + this.currentCommandIndex;
 
-                }
-                value = this.commandHistory[position].text;
-            }
+    //             console.log('commandCount: ', commandCount)
+    //             console.log('Index: ', this.currentCommandIndex)
+    //             console.log('Position (position - index): ', position)
 
-            else if (event.code == 'ArrowDown') {
+    //             if (position != 0){
+    //                 this.currentCommandIndex--;
+    //             } 
+    //             else {
 
-                position = position + this.currentCommandIndex;
-                console.log('commandCount: ', commandCount)
-                console.log('Index: ', this.currentCommandIndex)
-                console.log('Position (position - index): ', position)
+    //             }
+    //             value = this.commandHistory[position].text;
+    //         }
 
-                if (position != 0){
-                    this.currentCommandIndex++;
-                }
-                else {
+    //         else if (event.code == 'ArrowDown') {
 
-                }
+    //             position = position + this.currentCommandIndex;
+    //             console.log('commandCount: ', commandCount)
+    //             console.log('Index: ', this.currentCommandIndex)
+    //             console.log('Position (position - index): ', position)
+
+    //             if (position != 0){
+    //                 this.currentCommandIndex++;
+    //             }
+    //             else {
+
+    //             }
                 
-                value = this.commandHistory[position].text;
-            }
+    //             value = this.commandHistory[position].text;
+    //         }
 
-            this.promptValue = value;
-            this.performChecksAndSendCommand();
-        }
+    //         this.promptValue = value;
+    //         this.performChecksAndSendCommand();
+    //     }
 
-    }
+    // }
 
     private performChecksAndSendCommand(): void {
         this.determineValidCommand();
@@ -153,6 +155,3 @@ export class PromptComponent implements OnInit, OnDestroy {
         this.commandHistory = this.commandHistory.filter((cmd) => cmd.text != '');
     }
 }
-
-// todo: 
-//     tab completion

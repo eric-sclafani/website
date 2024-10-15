@@ -161,14 +161,3 @@ export class TerminalComponent implements OnInit {
 
 
 }
-
-
-
-
-
-/* TODO:
-maybe have commands to change style of terminal
-
-
-
-*/
