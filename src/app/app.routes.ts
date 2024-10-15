@@ -9,7 +9,7 @@ import { TerminalComponent } from "./components/nerd-mode/terminal/terminal.comp
 export const routes: Routes = [
 
     {
-        path: "normal",
+        path: "",
         component: HomeComponent,
         children: [
             { path: "about", component: AboutComponent },
@@ -19,6 +19,6 @@ export const routes: Routes = [
     },
 
     { path: "nerd", component: TerminalComponent },
-    { path: "", redirectTo: "/normal", pathMatch: "full" },
-    { path: "**", redirectTo: "/normal", pathMatch: "full" }
+    { path: "", redirectTo: "/", pathMatch: "full" },
+    { path: "**", redirectTo: "/", pathMatch: "full" }
 ];

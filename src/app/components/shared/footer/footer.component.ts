@@ -24,7 +24,7 @@ export class FooterComponent {
 
     setClass():Record<string, boolean>{
 		return {
-			'pixel-font' : this.router.url.includes('/normal'),
+			'pixel-font' : this.router.url.includes('/'),
 			'hack-font' : this.router.url.includes('/nerd')
 		}
 	}
