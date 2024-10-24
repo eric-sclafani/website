@@ -12,7 +12,7 @@
 ## Nerd mode
 - Maybe add user options to customize theme, colors, etc...
 - Add Up and Down arrow terminal functionality 
-- Use github API to retrieve project data and display (after deploying and using api key)
+- Use github API to retrieve project data and display (just like in normal mode)
 
 ## Both modes
  

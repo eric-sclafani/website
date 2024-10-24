@@ -20,7 +20,8 @@ export class ProjectsComponent implements OnInit, OnDestroy{
 		'gram2vec',
 		'syntax-regex-matcher',
 		'website',
-        'nyc-favorite-spots'
+        'nyc-favorite-spots',
+        'mta-data-dashboard'
 	]
 
 	// TODO: keep an eye on whether these mappings work when more repos are added
