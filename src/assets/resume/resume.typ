@@ -4,7 +4,7 @@
   author: (
     firstname: "Eric",
     lastname: "Sclafani",
-    phone: "631-681-2797",
+    phone: none,
     email: "eric.sclafani321@gmail.com",
     github: "eric-sclafani",
     website: "https://ericsclafani.dev",
@@ -112,6 +112,7 @@
     "ASP.NET Core",
     "C#",
     "MVC",
+    "Razor Pages",
     "Python",
     "FastAPI"
   )
