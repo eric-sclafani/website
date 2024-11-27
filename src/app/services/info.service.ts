@@ -32,7 +32,7 @@ export class InfoService {
             ],
             backend : [
                 'SQL Server',
-                'ASP.NET',
+                'ASP.NET Core',
                 'T-SQL',
                 'C#',
                 'Python'
