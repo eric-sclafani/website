@@ -7,7 +7,7 @@
     phone: none,
     email: "eric.sclafani321@gmail.com",
     github: "eric-sclafani",
-    website: "https://ericsclafani.dev",
+    website: "https://ericsclafani.netlify.app/",
     linkedin: "Eric Sclafani",
     positions: (
       "Software Developer",
@@ -35,7 +35,7 @@
 
   - Within first month of employment, built document category/sub-category maintenance tool with Angular for the frontend, Material UI for the interface, ASP.NET Core backend, and SQL Server database. This app allows Legal staff to perform CRUD operations such as adding new document categories and editing existing ones inside of lookup tables. This tool is essential to ensure correctness for all document related data and the various applications that rely on it
 
-  - Developed new case flagger app as part of a suite of existing apps that let Legal staff track information about defendants. Specifically, it tracks data about defendants inside the Drug Treatment Alternative-to-Prison (DTAP) program. Initially a .NET Framework MVC and jQuery app, entirely re-engineered using VueJS for the frontend, Vuetify for UI components, and ASP.NET Core for the backend with SQL Server as the database
+  - Developed case flagger app as part of a suite of existing apps that let Legal staff track information about defendants. Specifically, it tracks data about defendants inside the Drug Treatment Alternative-to-Prison (DTAP) program. Initially a .NET Framework MVC and jQuery app, entirely re-engineered using Angular for the frontend, Material UI for styled components, and ASP.NET Core for the backend with SQL Server as the database
 
   - Wrote complex SQL Server queries, stored procedures, and views that supply data to numerous data-driven applications
 
@@ -93,7 +93,6 @@
     "jQuery",
     "Ajax",
     "RxJS",
-    "LeafletJS"
     )
 )
 
