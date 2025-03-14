@@ -1,3 +1,6 @@
+// NOTE:
+// Tinymist MUST be version 11.20.0 for preview to work with this template. 
+
 #import "lib.typ": *
 
 #show: resume.with(
@@ -7,7 +10,7 @@
     phone: none,
     email: "eric.sclafani321@gmail.com",
     github: "eric-sclafani",
-    website: "https://ericsclafani.netlify.app/",
+    website: "https://ericsclafani.dev/",
     linkedin: "Eric Sclafani",
     positions: (
       "Software Developer",
@@ -17,15 +20,15 @@
 
 #align(center)[
 #text(
-    red, 
-    weight: "bold", 
+    red,
+    weight: "bold",
     "RESUME WORK IN PROGRESS")
 ]
 
 = Experience
 
 #resume-entry(
-  title: "Junior . NET Developer",
+  title: "Junior .NET Developer",
   location: "Brooklyn, NY",
   date: "April 2024 - Present",
   description: "Kings County District Attorney's Office"
@@ -33,19 +36,27 @@
 
 #resume-item[
 
-  - Within first month of employment, built document category/sub-category maintenance tool with Angular for the frontend, Material UI for the interface, ASP.NET Core backend, and SQL Server database. This app allows Legal staff to perform CRUD operations such as adding new document categories and editing existing ones inside of lookup tables. This tool is essential to ensure correctness for all document related data and the various applications that rely on it
+  - Within first month of employment, built maintenance tool that enables non-technical Legal staff to perform CRUD operations on SQL Server lookup table. This table stores crucial information about different categories and subcategories legal documents can be classified as. This application uses ASP.NET Core Web API to handle HTTP requests, Angular for client-side interactivity, and Material UI for styled web components to provide a user-friendly interface. 
+  
 
-  - Developed case flagger app as part of a suite of existing apps that let Legal staff track information about defendants. Specifically, it tracks data about defendants inside the Drug Treatment Alternative-to-Prison (DTAP) program. Initially a .NET Framework MVC and jQuery app, entirely re-engineered using Angular for the frontend, Material UI for styled components, and ASP.NET Core for the backend with SQL Server as the database
+  // - Developed case flagger app as part of a suite of existing case flaggers that let Legal staff track information about defendants inside the Drug Treatment Alternative-to-Prison (DTAP) program. Initially a .NET Framework MVC and jQuery app, entirely re-engineered using Angular, Material UI, ASP.NET Web API, and SQL Server.
+  // this app pulls data from many tables
+  // 
+  // This bureau aims at diverting drug-addicted defendants to treatment programs to seek help rather than face incarceration. 
 
-  - Wrote complex SQL Server queries, stored procedures, and views that supply data to numerous data-driven applications
+  - Developed full-stack web application for Alternative Programs Bureau to manage data about defendants enrolled in court-mandated drug treatment programs. Stored data is normalized across many tables in SQL Server. Initially built with .NET Framework MVC and jQuery, re-engineered using ASP.NET Core Web API for server logic, Angular for data-driven reactive forms, and Material UI for crafting 
 
-  - Integrated newer applications into large existing codebase spread across numerous repositories
+  - Wrote complex SQL Server queries, stored procedures, and views that supply data to numerous data-driven applications...
 
-  - Worked with Legal staff to translate their application requirements into fully functional software tools
+  - Integrated newer applications into large existing codebase spread across numerous repositories...
 
-  - Provided fast and efficient tech support for application users
+  - Worked with Legal staff to translate their application requirements into fully functional software tools...
 
-  // TODO: add point about teamwork
+  - Provided fast and efficient tech support for application users...
+
+  - Collaborated on a team of \~10 developers...
+
+  // TODO: add point about teamwork, user authorization with apps, REST APIs
 
 ]
 
@@ -68,30 +79,16 @@
 
 ]
 
-// = Projects
-
-// #resume-entry(
-//   title: "Gram2Vec",
-//   location: [#github-link("eric-sclafani/gram2vec")],
-//   date: "November 2022 - August 2023",
-//   description: "python library"
-// )
-
-// #resume-item[
-//   -
-// ]
-
 = Skills
 
 #resume-skill-item("Frontend",
   (
-    "JavaScript",
-    "TypeScript",
-    "HTML",
     "Angular",
     "VueJS",
+    "TypeScript",
+    "JavaScript",
+    "HTML",
     "jQuery",
-    "Ajax",
     "RxJS",
     )
 )
@@ -99,32 +96,39 @@
 #resume-skill-item("UI",
   (
     "CSS",
-    "Bootstrap",
-    "Material UI",
     "SCSS",
-    "Vuetify"
+    "Bootstrap",
+    "Angular Material",
   )
 )
 
 #resume-skill-item("Backend",
   (
     "ASP.NET Core",
-    "C#",
+    ".NET",
     "MVC",
-    "Razor Pages",
     "Python",
-    "FastAPI"
-  )
-)
-#resume-skill-item("Database",
-  (
-    "SQL server",
-    "T-SQL",
-    "MySQL"
   )
 )
 
-#resume-skill-item("Data Analysis",
+#resume-skill-item("Database",
+  (
+    "SQL Server",
+    "T-SQL",
+    "SQLite"
+  )
+)
+
+
+#resume-skill-item("Tools",
+  (
+    "Git",
+    "Visual Studio",
+    "Linux"
+  )
+)
+
+#resume-skill-item("Other",
   (
     "Pandas",
     "Scikit-Learn",
@@ -134,16 +138,6 @@
     "Matplotlib"
   )
 )
-
-#resume-skill-item("Tools",
-  (
-    "Excel",
-    "Git",
-    "Visual Studio",
-    "Linux"
-  )
-)
-
 = Education
 
 #resume-entry(

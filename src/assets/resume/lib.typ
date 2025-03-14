@@ -273,7 +273,7 @@
             #separator
             #website-icon
             #box[
-              #link("https://ericsclafani.netlify.app")[Homepage]
+              #link(author.website)[Homepage]
             ]
           ]
         ]
