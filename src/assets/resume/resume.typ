@@ -36,19 +36,15 @@
 
 #resume-item[
 
-  - Within first month of employment, built maintenance tool that enables non-technical Legal staff to perform CRUD operations on SQL Server lookup table. This table stores crucial information about different categories and subcategories legal documents can be classified as. This application uses ASP.NET Core Web API to handle HTTP requests, Angular for client-side interactivity, and Material UI for styled web components to provide a user-friendly interface. 
+  - Within first month of employment, built maintenance tool that enables non-technical Legal staff to perform CRUD operations on SQL Server lookup table. This table stores crucial data about different categories and subcategories legal documents can be classified as. Legal trials typically require many documents, and the disorganization of them can negatively impact a trial, of which this tool mitigates. This application uses ASP.NET Core Web API to handle HTTP requests, Angular for client-side interactivity, and Material UI for styled web components to provide for a user-friendly experience
   
+  - Developed full-stack web application for Alternative Programs Bureau to manage data about defendants enrolled in court-mandated drug treatment programs. This bureau aims at diverting drug-addicted defendants to treatment programs to seek help rather than face incarceration. Stored data is normalized across many tables in SQL Server. Initially built with .NET Framework MVC and jQuery, re-engineered using ASP.NET Core Web API for server logic, Angular for data-driven reactive forms, and Material UI for crafting an intuitive interface
 
-  // - Developed case flagger app as part of a suite of existing case flaggers that let Legal staff track information about defendants inside the Drug Treatment Alternative-to-Prison (DTAP) program. Initially a .NET Framework MVC and jQuery app, entirely re-engineered using Angular, Material UI, ASP.NET Web API, and SQL Server.
-  // this app pulls data from many tables
-  // 
-  // This bureau aims at diverting drug-addicted defendants to treatment programs to seek help rather than face incarceration. 
+// need point solely about using stored procedures, views, transactions
 
-  - Developed full-stack web application for Alternative Programs Bureau to manage data about defendants enrolled in court-mandated drug treatment programs. Stored data is normalized across many tables in SQL Server. Initially built with .NET Framework MVC and jQuery, re-engineered using ASP.NET Core Web API for server logic, Angular for data-driven reactive forms, and Material UI for crafting 
+  - Wrote SQL Server stored procedures for numerous data-driven applications...
 
-  - Wrote complex SQL Server queries, stored procedures, and views that supply data to numerous data-driven applications...
-
-  - Integrated newer applications into large existing codebase spread across numerous repositories...
+  - Integrated newer applications into large existing codebase spread across numerous repositories in Microsoft Azure DevOps. 
 
   - Worked with Legal staff to translate their application requirements into fully functional software tools...
 
@@ -56,7 +52,12 @@
 
   - Collaborated on a team of \~10 developers...
 
-  // TODO: add point about teamwork, user authorization with apps, REST APIs
+
+
+  // TODO: add point about teamwork, user authorization with apps, REST APIs, Charge Maintenance Tool
+
+  // IDEA: since many apps use same tech stack, separate the tech stack into its own point, and focus more on the application itself in the other bullet points? This is to reduce redundant points possibly
+
 
 ]
 
