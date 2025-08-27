@@ -36,27 +36,33 @@
 
 #resume-item[
 
-  - Within first month of employment, built maintenance tool that enables non-technical Legal staff to perform CRUD operations on SQL Server lookup table. This table stores crucial data about different categories and subcategories legal documents can be classified as. Legal trials typically require many documents, and the disorganization of them can negatively impact a trial, of which this tool mitigates. This application uses ASP.NET Core Web API to handle HTTP requests, Angular for client-side interactivity, and Material UI for styled web components to provide for a user-friendly experience
+// this point is technically false; all maint tools are for IT and other tech departments (like BOLT)
+  - Within first month of employment, built web-based maintenance tool that enables non-technical Legal staff to perform CRUD operations on SQL Server lookup table. This table stores crucial data about different (sub)categories that legal documents can be classified as. Legal trials require many documents, and the disorganization of them can negatively impact a trial, of which this tool mitigates. This application uses ASP.NET Core Web API to handle HTTP requests, Angular for client-side interactivity, and Material UI for styled web components to provide a user-friendly experience.
   
-  - Developed full-stack web application for Alternative Programs Bureau to manage data about defendants enrolled in court-mandated drug treatment programs. This bureau aims at diverting drug-addicted defendants to treatment programs to seek help rather than face incarceration. Stored data is normalized across many tables in SQL Server. Initially built with .NET Framework MVC and jQuery, re-engineered using ASP.NET Core Web API for server logic, Angular for data-driven reactive forms, and Material UI for crafting an intuitive interface
+  - Developed web application for Alternative Programs Bureau Drug Treatment Unit to manage data about defendants enrolled in court-mandated drug treatment programs. This unit aims to divert drug-addicted defendants to treatment programs to seek help rather than face incarceration. Stored data is normalized across many tables in SQL Server. Initially built with .NET Framework MVC and jQuery, re-engineered using ASP.NET Core Web API for server logic, Angular for data-driven reactive forms, and Material UI for crafting an intuitive interface.
 
-// need point solely about using stored procedures, views, transactions
+// Charge maintenance
 
-  - Wrote SQL Server stored procedures for numerous data-driven applications...
+  // - Assumed responsibility of maintaining existing web application 
 
-  - Integrated newer applications into large existing codebase spread across numerous repositories in Microsoft Azure DevOps. 
-
-  - Worked with Legal staff to translate their application requirements into fully functional software tools...
-
-  - Provided fast and efficient tech support for application users...
-
-  - Collaborated on a team of \~10 developers...
-
-
+// mental health case flagger
 
   // TODO: add point about teamwork, user authorization with apps, REST APIs, Charge Maintenance Tool
 
   // IDEA: since many apps use same tech stack, separate the tech stack into its own point, and focus more on the application itself in the other bullet points? This is to reduce redundant points possibly
+
+// need point solely about using stored procedures,
+
+// need point on resolving user submitted tickets in timely manner...
+
+  - Wrote application-specific SQL Server stored procedures to facilitate data transfer between database and applications....
+
+  - Worked with Legal staff to translate their business requirements into full-stack applications tailored to their specific needs....
+
+  - Embedded SSRS reports into frontend applications that accept user inputs and generate 
+
+
+
 
 
 ]
@@ -69,14 +75,13 @@
 )
 
 #resume-item[
-  - Worked on a federal research project funded by the Intelligence Advanced Research Projects Activity (IARPA) called HIATUS, which focuses on authorship attribution, the task of automatically identifying the author of a document
+  - Worked on a federal research project funded by the Intelligence Advanced Research Projects Activity (IARPA) called HIATUS, which focuses on authorship attribution, the task of automatically identifying the author of a document.
 
-  - Developed Gram2Vec, a Python package utilizing spaCy and Pandas to convert text into vectors based on writing style. Differs from other embedding algorithms like Word2Vec in that each vector position corresponds to a concrete feature pertaining to grammar usage. This makes the vectors interpretable, a property that traditional word vectors often lack
+  - Developed Gram2Vec, a Python package utilizing spaCy and Pandas to convert text into vectors based on writing style. Differs from other embedding algorithms like Word2Vec in that each vector position corresponds to a concrete feature pertaining to grammar usage. This makes the vectors interpretable, a property that traditional word vectors often lack.
 
-// mention iarpa provided testing code, as well as KNN approach I build using sckikit learn
-  - Performed authorship attribution experiments using Gram2Vec with testing code and data provided by IARPA
+  - Performed authorship attibutions experiments with Gram2Vec using custom built K-Nearest Neighbors testing algorithm, as well as an evaluation suite provided by IARPA.
 
-  - Collaborated with team members to compile monthly progress reports
+  - Collaborated with team members to compile monthly progress reports.
 
 ]
 
@@ -85,12 +90,12 @@
 #resume-skill-item("Frontend",
   (
     "Angular",
-    "VueJS",
+    "RxJS",
     "TypeScript",
     "JavaScript",
     "HTML",
     "jQuery",
-    "RxJS",
+    "VueJS",
     )
 )
 
@@ -115,6 +120,7 @@
 #resume-skill-item("Database",
   (
     "SQL Server",
+    "SSRS",
     "T-SQL",
     "SQLite"
   )
