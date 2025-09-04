@@ -28,7 +28,7 @@
 = Experience
 
 #resume-entry(
-  title: "Junior .NET Developer",
+  title: "Junior Full Stack .NET Developer",
   location: "Brooklyn, NY",
   date: "April 2024 - Present",
   description: "Kings County District Attorney's Office"
@@ -36,36 +36,43 @@
 
 #resume-item[
 
-// this point is technically false; all maint tools are for IT and other tech departments (like BOLT)
-  - Within first month of employment, built web-based maintenance tool that enables non-technical Legal staff to perform CRUD operations on SQL Server lookup table. This table stores crucial data about different (sub)categories that legal documents can be classified as. Legal trials require many documents, and the disorganization of them can negatively impact a trial, of which this tool mitigates. This application uses ASP.NET Core Web API to handle HTTP requests, Angular for client-side interactivity, and Material UI for styled web components to provide a user-friendly experience.
+  // - Within first month of employment, built web-based maintenance tool that enables non-technical Legal staff to perform CRUD operations on SQL Server lookup table. This table stores crucial data about different (sub)categories that legal documents can be classified as. Legal trials require many documents, and the disorganization of them can negatively impact a trial, of which this tool mitigates. This application uses ASP.NET Core Web API to handle HTTP requests, Angular for client-side interactivity, and Material UI for styled web components to provide a user-friendly experience.
   
-  - Developed web application for Alternative Programs Bureau Drug Treatment Unit to manage data about defendants enrolled in court-mandated drug treatment programs. This unit aims to divert drug-addicted defendants to treatment programs to seek help rather than face incarceration. Stored data is normalized across many tables in SQL Server. Initially built with .NET Framework MVC and jQuery, re-engineered using ASP.NET Core Web API for server logic, Angular for data-driven reactive forms, and Material UI for crafting an intuitive interface.
+  // - Developed web application for Alternative Programs Bureau Drug Treatment Unit to manage data about defendants enrolled in court-mandated drug treatment programs. This unit aims to divert drug-addicted defendants to treatment programs to seek help rather than face incarceration. Stored data is normalized across many tables in SQL Server. Initially built with .NET Framework MVC and jQuery, re-engineered using ASP.NET Core Web API for server logic, Angular for data-driven reactive forms, and Material UI for crafting an intuitive interface.
 
-// Charge maintenance
-
-  // - Assumed responsibility of maintaining existing web application 
-
-// mental health case flagger
-
-  // TODO: add point about teamwork, user authorization with apps, REST APIs, Charge Maintenance Tool
-
-  // IDEA: since many apps use same tech stack, separate the tech stack into its own point, and focus more on the application itself in the other bullet points? This is to reduce redundant points possibly
 
 // need point solely about using stored procedures,
 
 // need point on resolving user submitted tickets in timely manner...
+ // - Assumed responsibility of maintaining existing web application 
+
+  // designed SQL server tables...
+
+  // reactive forms, custom validation
+
+  // rxjs for performant interactivity
+
+//? IDEA: split frontend and backend into two separate points 
+
+  - Developed and tailor-made full stack web applications for different bureaus/units to facilitate data operations (CRUD). These applications #text(red, "add info about how these apps handle important legal data for legal staff to do stuff with...")
+
+  - #text(red, "FRONTEND") Utilized HTML, CSS, Angular, and Material UI to produce robust and intuitive user-friendly interfaces for web application frontends. 
+
+  - #text(red, "BACKEND") Designed 
+
 
   - Wrote application-specific SQL Server stored procedures to facilitate data transfer between database and applications....
+
 
   - Worked with Legal staff to translate their business requirements into full-stack applications tailored to their specific needs....
 
   - Embedded SSRS reports into frontend applications that accept user inputs and generate 
 
 
-
-
-
 ]
+
+
+
 
 #resume-entry(
   title: "Research Assistant",
@@ -82,6 +89,9 @@
   - Performed authorship attibutions experiments with Gram2Vec using custom built K-Nearest Neighbors testing algorithm, as well as an evaluation suite provided by IARPA.
 
   - Collaborated with team members to compile monthly progress reports.
+
+  #show link: set text(fill: blue)
+  - Peter Zeng, #text(weight: "bold")[Eric Sclafani], Owen Rambow, #link("https://arxiv.org/abs/2406.12131")["Gram2Vec: An Interpretable Document Vectorizer"]
 
 ]
 
@@ -104,7 +114,7 @@
     "CSS",
     "SCSS",
     "Bootstrap",
-    "Angular Material",
+    "Material UI",
   )
 )
 
@@ -160,3 +170,5 @@
   date: "August 2019 - May 2021",
   description: "Stony Brook University"
 )
+
+
