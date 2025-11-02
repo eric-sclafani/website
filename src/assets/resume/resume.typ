@@ -13,17 +13,10 @@
     website: "https://ericsclafani.dev/",
     linkedin: "Eric Sclafani",
     positions: (
-      "Software Developer",
+      "Full stack Developer",
     )
   ),
 )
-
-#align(center)[
-#text(
-    red,
-    weight: "bold",
-    "RESUME WORK IN PROGRESS")
-]
 
 = Experience
 
@@ -36,43 +29,35 @@
 
 #resume-item[
 
-  // - Within first month of employment, built web-based maintenance tool that enables non-technical Legal staff to perform CRUD operations on SQL Server lookup table. This table stores crucial data about different (sub)categories that legal documents can be classified as. Legal trials require many documents, and the disorganization of them can negatively impact a trial, of which this tool mitigates. This application uses ASP.NET Core Web API to handle HTTP requests, Angular for client-side interactivity, and Material UI for styled web components to provide a user-friendly experience.
-  
-  // - Developed web application for Alternative Programs Bureau Drug Treatment Unit to manage data about defendants enrolled in court-mandated drug treatment programs. This unit aims to divert drug-addicted defendants to treatment programs to seek help rather than face incarceration. Stored data is normalized across many tables in SQL Server. Initially built with .NET Framework MVC and jQuery, re-engineered using ASP.NET Core Web API for server logic, Angular for data-driven reactive forms, and Material UI for crafting an intuitive interface.
-
-
-// need point solely about using stored procedures,
 
 // need point on resolving user submitted tickets in timely manner...
- // - Assumed responsibility of maintaining existing web application 
+// 
+
 
   // designed SQL server tables...
 
-  // reactive forms, custom validation
-
   // rxjs for performant interactivity
+  
 
-//? IDEA: split frontend and backend into two separate points 
+  // add info about how these apps handle important legal data for legal staff to do stuff with
 
-  - Developed and tailor-made full stack web applications for different bureaus/units to facilitate data operations (CRUD). These applications #text(red, "add info about how these apps handle important legal data for legal staff to do stuff with...")
+  - Tailor-made and delivered 3+ full stack web applications for different bureaus/units to facilitate data operations (CRUD). These applications enable non-technical Legal staff to record and view sensitive data pertaining to defendant cases, diversion program updates, and other important information.
 
-  - #text(red, "FRONTEND") Utilized HTML, CSS, Angular, and Material UI to produce robust and intuitive user-friendly interfaces for web application frontends. 
+//? each sentence needs to be tied together here.
+  - Using Angular, TypeScript, HTML, and CSS, developed intuitive user interfaces for web application frontends. Utilized Angular Material and Bootstrap to create user-friendly responsive Angular components. Built reactive forms to correctly capture and display important information submitted by Legal staff. Created custom form validation rules to ensure data consistency.
 
-  - #text(red, "BACKEND") Designed 
-
-
-  - Wrote application-specific SQL Server stored procedures to facilitate data transfer between database and applications....
+  - Designed robust RESTful APIs using ASP.NET Core Web API to handle HTTP requests in application backends. Each Web API endpoint executes T-SQL stored procedures containing custom query logic to suit the application needs. Data is normalized across many tables and databases in SQL Server.
 
 
-  - Worked with Legal staff to translate their business requirements into full-stack applications tailored to their specific needs....
+  - Embedded SSRS reports hosted on separate server into application frontends via HTML iframes. They accept user-provided criteria and generate organized tabular data reports for non-technical end users.
 
-  - Embedded SSRS reports into frontend applications that accept user inputs and generate 
+  - Resolved user-submitted tickets in timely and efficient manner via ServiceDesk software.
+
+  - Worked with Legal staff to translate their business requirements into full-stack applications.
+
 
 
 ]
-
-
-
 
 #resume-entry(
   title: "Research Assistant",
@@ -91,7 +76,7 @@
   - Collaborated with team members to compile monthly progress reports.
 
   #show link: set text(fill: blue)
-  - Peter Zeng, #text(weight: "bold")[Eric Sclafani], Owen Rambow, #link("https://arxiv.org/abs/2406.12131")["Gram2Vec: An Interpretable Document Vectorizer"]
+  - Research Paper: Peter Zeng, #text(weight: "bold")[Eric Sclafani], Owen Rambow, #link("https://arxiv.org/abs/2406.12131")["Gram2Vec: An Interpretable Document Vectorizer"]
 
 ]
 
@@ -113,8 +98,8 @@
   (
     "CSS",
     "SCSS",
+    "Angular Material",
     "Bootstrap",
-    "Material UI",
   )
 )
 

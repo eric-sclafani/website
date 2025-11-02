@@ -145,11 +145,7 @@
         fill: gray,
         size: 8pt,
       )
-      #__justify_align_3[
-      ][
-      ][
-        #counter(page).display()
-      ]
+      
     ],
     footer-descent: 0pt,
   )
